@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="viewport" content="initial-scale=1.0, maximum-scale=1">
+      <!-- site metas -->
+      <title>CretanCandles</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- owl stylesheets --> 
+      <link rel="stylesheet" href="css/owl.carousel.min.css">
+      <link rel="stylesheet" href="css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+   </head>
+   <body>
+      <!--header section start -->
+      <section class = "header-reveal" id = "headerReveal">
+      <div class="header-section-intro" id = "header">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="logo"><a href="main_page.html"><img src="images/cclogo_changed_transparent.png" class = "logo"></a></div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item ">
+                     <a class=" nav-link header-main-item" href = "#">
+                        <i class="fa fa-phone" aria-hidden="true"></i>
+                        <span>6908707557</span>
+                     </a>
+                  </li>
+                  <li class="nav-item header-main-item">
+                     <a class=" nav-link " href = "#">
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        <span>jim.dolas@yahoo.com</span>
+                     </a>
+                  </li>
+                  <li class="nav-item header-main-item" >
+                     <a class="nav-link " href="#">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                     </a>
+                  </li>
+                  <li class="nav-item header-main-item">
+                     <a class="nav-link " href="#">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </nav>
+        
+      </div>
+      <a href = "main_page.html" class = "enter-button" id = "enterButton">Εισοδος</a>
+      </section>
+      
+      <div class = "images-grid" id = "imageGrid">
+         <div class = "img-container2 to-reveal">
+         <video autoplay muted loop >
+            <source src="images/show-video1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+         </video>
+         </div>
+         <!--<div class = "img-container2 to-reveal"><img src="images/eikona1.jpg" alt="Image 1" class = " to-reveal"></div>-->
+
+         <div class = "img-container2 to-reveal"><img src="images/eikona1.jpg" alt="Image 1" ></div>
+         <div class = "img-container2 to-reveal"><img src="images/eikona2.jpg" alt="Image 2" ></div>
+         <div class = "img-container2 to-reveal"><img src="images/eikona3.jpg" alt="Image 3"  ></div>
+         <div class = "img-container2 to-reveal"><img src="images/eikona4.jpg" alt="Image 4"  ></div>
+         <div class = "img-container2 to-reveal"><img src="images/eikona5.jpg" alt="Image 4"  ></div>
+      </div>
+
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+       
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <script src="js/bootstrap.js"></script> 
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      
+      <script>
+        
+         //document.addEventListener("DOMContentLoaded", () => {
+            window.onload = function() {
+            
+            const headerSection = document.getElementById("headerReveal");
+            //const headerElement = document.getElementById("header");
+            //const enterButton = document.getElementById("enterButton");
+            const gridElement = document.getElementById("imageGrid");
+            const images = document.querySelectorAll(".to-reveal");
+         
+            images.forEach((image, index) => {
+                  setTimeout(() => {
+                  image.style.opacity = "1";
+                  //image.style.transform = "translateY(0)";
+               }, index * 500);
+            });
+            
+            setTimeout(() => {
+               headerSection.classList.add('reveal-after');
+               //headerElement.classList.add('reveal-after');
+               //enterButton.style.display = "block";
+               //enterButton.style.opacity = "1";
+               //enterButton.classList.add('reveal-after-button');
+               //console.log(getComputedStyle(enterButton));
+               //background-color:rgba(0, 0, 0, 0.85);
+               gridElement.style.background = "#fdf5e7";
+               //gridElement.style.filter= "brightness(0.2)";
+            }, images.length * 500); 
+         };   
+      </script>
+      
+   </body>
+</html>
