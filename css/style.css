@@ -335,7 +335,7 @@ EF9A08 yellow
     display:none;
     opacity:0;
     width:100%;
-    min-height:50%;
+    min-height:40%;
     z-index: 100;
     flex-direction: column;
     background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  url("../images/sea.jpg");
@@ -372,7 +372,7 @@ EF9A08 yellow
 
 .enter-button {
 
-    margin:2% auto;
+    margin:5rem auto;
     width:fit-content;
     height:auto;
     font-size:1.2rem;/*18px*/
@@ -382,8 +382,8 @@ EF9A08 yellow
     text-align:center;
     letter-spacing: 0.2rem;
     text-transform: uppercase;
-    padding:0.5dvw;
-    border-radius: 2dvw;
+    padding:0.5rem;
+    border-radius: 2rem;
 }
 
 .enter-button:hover {
