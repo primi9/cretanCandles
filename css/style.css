@@ -475,11 +475,6 @@ EF9A08 yellow
 
 /*MAIN PAGE*/
 
-p {
-    word-break: break-all;
-    text-align: center;
-}
-
 .services-text {
     display:flex;
     flex-direction: column;
@@ -496,6 +491,11 @@ p {
     color:#46371d;
     padding:10px 0px 2% 0px;
     text-align: center;  
+}
+
+.services-text p {
+    overflow-wrap: anywhere;
+    text-align: center;
 }
 
 .categories-section {
@@ -567,7 +567,7 @@ p {
 
 .category-text-description p {
 
-    overflow-wrap: break-word;
+    word-break: break-all;
     text-align: center;
     hyphens:auto;
     margin-bottom:auto;
@@ -867,13 +867,40 @@ p {
     margin:0 auto;
     display:flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    
 }
 
 .contact-info-section {
     width:30%;
     display:flex;
     padding: 0.5rem;
-    flex-direction: column;
+    flex-wrap:wrap;
+    align-content: flex-start;
+}
+
+.send-us-text {
+    flex-basis: 100%;
+    font-size: 1.2rem;
+    margin:0;
+    padding: 0.5rem;
+}
+
+.social-text {
+    font-size: 2rem;
+    padding:0.2rem;
+    flex-basis: 100%;
+    height:fit-content;
+}
+
+.social-bt {
+    font-size: 1.5rem;
+    color:#042789;
+    padding:0.5rem;
+}
+
+.social-bt:hover {
+    color:#EF9A08;
 }
 
 .mail-section {
@@ -926,6 +953,19 @@ p {
     background-color:#EF9A08;
 }
 
+@media (max-width:600px) {
+    .mail-section , .contact-info-section {
+        width:100%;
+    }
+    .contact-info-section {
+        justify-content: center;
+
+        .social-text {
+            text-align: center;
+        }
+    }
+
+}
 /*footer section*/
 
 .footer-section {
