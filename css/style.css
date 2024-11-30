@@ -372,10 +372,10 @@ EF9A08 yellow
 
 .enter-button {
 
-    margin:5rem auto;
+    margin:3rem auto;
     width:fit-content;
     height:auto;
-    font-size:1.2rem;/*18px*/
+    font-size:1.5rem;/*18px*/
     font-weight:600;
     background-color: #042789;
     color: white;
@@ -835,7 +835,7 @@ EF9A08 yellow
     position: fixed;
     top: 2%;
     right: 2%;
-    font-size: 3rem;/*60px*/
+    font-size: 4rem;
     font-weight: bold;
     z-index: 100;
 }
@@ -867,40 +867,42 @@ EF9A08 yellow
     margin:0 auto;
     display:flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    
+    flex-wrap: wrap;    
 }
 
 .contact-info-section {
     width:30%;
     display:flex;
     padding: 0.5rem;
-    flex-wrap:wrap;
-    align-content: flex-start;
-}
-
-.send-us-text {
-    flex-basis: 100%;
-    font-size: 1.2rem;
-    margin:0;
-    padding: 0.5rem;
+    flex-direction: column;
+    align-items: center;
 }
 
 .social-text {
-    font-size: 2rem;
-    padding:0.2rem;
-    flex-basis: 100%;
-    height:fit-content;
+   
+    font-size:1.2rem;
+    text-align: center;
+    padding: 0.2rem;
+    margin:0;
 }
 
 .social-bt {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color:#042789;
-    padding:0.5rem;
+    padding:0.2rem 0.5rem;
+    width: fit-content;
+    height: fit-content;
 }
 
 .social-bt:hover {
     color:#EF9A08;
+}
+
+.send-us-text {
+    font-size: 1.2rem;
+    margin:0;
+    padding: 0.2rem;
+    text-align: center;
 }
 
 .mail-section {
@@ -954,15 +956,16 @@ EF9A08 yellow
 }
 
 @media (max-width:600px) {
+
+    .contact_section ,_2 .map-responsive {
+        width:90dvw;
+    }
+
     .mail-section , .contact-info-section {
         width:100%;
     }
     .contact-info-section {
         justify-content: center;
-
-        .social-text {
-            text-align: center;
-        }
     }
 
 }
