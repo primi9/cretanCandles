@@ -483,12 +483,13 @@ p {
 .services-text {
     display:flex;
     flex-direction: column;
-    width:100%;
+    width:95%;
     margin:2% auto;
     padding:2%;
     align-items: center;
     justify-content: center;
     background-color: rgb(244, 247, 248);
+    border-left: 0.3rem groove #635c5c;
 }
 
 .services-text h1 {
@@ -848,69 +849,11 @@ p {
 
 /*Contact Us Page*/
 
-.contact_section_2 {
-    width: 100%;
-    margin:auto;
-    padding:1%;
-    display:flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.mail-section {
-    width:60%;
-    background-image: url(../images/eikona93.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding:1%;
-    border-radius: 20px;
-}
-
-.email-bt {
-    color: #080707;
-    width: 100%;
-    font-size: 1.2rem;/*20px*/
-    padding: 2% 3%;
-
-    margin: 0 auto;
-    border-radius: 30px;
-}
-
-.message-bt {
-    color: #080707;
-    width: 100%;
-    font-size: 1.2rem;/*20px*/
-    padding: 2% 3%;
-
-    margin: 0 auto;
-    border-radius: 50px;
-}
-
-.send_btn {
-    width: fit-content;
-    margin: 0 auto;
-    text-align: center;
-
-}
-
-.send_btn a {
-    margin: 0 auto;
-    color: #ffffff;
-    border-radius: 20px;
-    display: block;
-    background-color: #042789;
-    padding:10px;
-}
-
-.send_btn a:hover {
-    color: #323131;
-    background-color: #ffffff;
-}
-
 .map-responsive {
-    padding:1%;
-    width:100%;
-    height:80dvh;
+    padding:0.5rem;
+    width:80dvw;
+    height:70dvh;
+    margin: 0 auto;
 }
 
 .map-responsive iframe {
@@ -918,13 +861,69 @@ p {
     height:100%;
 }
 
-@media (max-width:800px){
-    .contact_section_2 {
-        flex-direction: column;
-    }
-    .mail-section {
-        width:80%;
-    }
+.contact_section_2 {
+    width:80dvw;
+    padding:0.5rem;
+    margin:0 auto;
+    display:flex;
+    flex-direction: row;
+}
+
+.contact-info-section {
+    width:30%;
+    display:flex;
+    padding: 0.5rem;
+    flex-direction: column;
+}
+
+.mail-section {
+    width:70%;
+    padding:0.5rem;
+    display: flex;
+    flex-direction: column; 
+}
+
+.form-row {
+    width:100%;
+    display:flex;
+    margin:0;
+}
+
+.form-group {
+    flex:1;
+    padding:0.2rem;
+    margin:0;
+}
+
+.email-name-bt {
+    color: #080707;
+    width:100%;
+    font-size: 1rem;/*20px*/
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+}
+
+.message-bt {
+    color: #080707;
+    width:100%;
+    font-size: 1rem;/*20px*/
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+}
+
+.send_btn {
+    width: fit-content;
+    margin: 0 auto;
+    
+    padding: 0.5rem 1rem;
+    border-radius: 2.5rem;
+    background-color: #042789;
+    color: #ffffff;
+}
+
+.send_btn:hover {
+    color: #323131;
+    background-color:#EF9A08;
 }
 
 /*footer section*/

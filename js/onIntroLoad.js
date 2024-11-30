@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
-    //window.onload = function() {
+//document.addEventListener("DOMContentLoaded", () => {
+window.onload = function() {
     
     const headerSection = document.getElementById("headerReveal");
     //const headerElement = document.getElementById("header");
@@ -26,4 +26,4 @@ document.addEventListener("DOMContentLoaded", () => {
        
        gridElement.style.opacity = "0.3";
     }, images.length * 500); 
-});   
+};   
