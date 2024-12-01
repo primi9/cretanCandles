@@ -49,7 +49,6 @@ const translations = {
 
     document.querySelectorAll("[data-text]").forEach((element) => {
        const key = element.getAttribute("data-text");
-       console.log(key)
        element.innerText = translations[langMode][key];
     });
  }

@@ -36,7 +36,6 @@ body {
     font-weight: normal;
     overflow-x: hidden !important;
     height: 100%;
-    margin-bottom: 30px;
     background-color:rgb(235, 245, 255);
 }
 
@@ -216,7 +215,7 @@ button {
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .show>.nav-link {
-    color:#042789;
+    color:#262c3d;
 }
 
 .navbar-light .navbar-nav .nav-link:focus,
@@ -232,7 +231,7 @@ button {
     padding-right: .5rem;
     padding-left: .5rem;
     font-size: 1.2rem;/*18px*/
-    color:#042789;
+    color:#262c3d;
 }
 
 .navbar-nav{
@@ -243,7 +242,7 @@ button {
     padding-right: .5rem;
     padding-left: .5rem;
     font-size: 1.2rem;/*18px*/
-    color:#042789;
+    color:#262c3d;
     background:none;
 }
 
@@ -252,14 +251,14 @@ button {
 }
 
 .active-lang {
-    color:black;
+    color:#042789;
 }
 
 /* Dropdown Button */
 .dropbtn {
     display:block;
     background: none;
-    color: #042789;
+    color: #262c3d;
     border: none;
     position: relative;
 }
@@ -351,7 +350,6 @@ EF9A08 yellow
 .header-main-item {
     display:flex;
     align-items: center;
-    justify-content: center;
 }
 
 .header-main-item *{
@@ -375,9 +373,9 @@ EF9A08 yellow
     margin:3rem auto;
     width:fit-content;
     height:auto;
-    font-size:1.5rem;/*18px*/
+    font-size:1.2rem;/*18px*/
     font-weight:600;
-    background-color: #042789;
+    background-color: #262c3d;
     color: white;
     text-align:center;
     letter-spacing: 0.2rem;
@@ -825,7 +823,7 @@ EF9A08 yellow
     left: 0;
     width: 100%;
     height: 100%;
-    background-color:rgba(0, 0, 0, 0.85);
+    background-color:rgba(0, 0, 0, 1);
     z-index: 10;
 }
 
@@ -878,6 +876,13 @@ EF9A08 yellow
     align-items: center;
 }
 
+.send-us-text {
+    font-size: 1.2rem;
+    margin:0;
+    padding: 0.2rem;
+    text-align: center;
+}
+
 .social-text {
    
     font-size:1.2rem;
@@ -889,7 +894,7 @@ EF9A08 yellow
 .social-bt {
     font-size: 1.8rem;
     color:#042789;
-    padding:0.2rem 0.5rem;
+    padding:0.5rem;
     width: fit-content;
     height: fit-content;
 }
@@ -898,12 +903,7 @@ EF9A08 yellow
     color:#EF9A08;
 }
 
-.send-us-text {
-    font-size: 1.2rem;
-    margin:0;
-    padding: 0.2rem;
-    text-align: center;
-}
+
 
 .mail-section {
     width:70%;
@@ -973,7 +973,7 @@ EF9A08 yellow
 
 .footer-section {
     width: 100%;
-    padding:1%;
+    padding:1rem;
     display:flex;
     flex-direction: row;
     
@@ -987,7 +987,7 @@ EF9A08 yellow
     flex-direction: column;
     margin-left:auto;
     height:100%;
-    padding:2%;
+    padding:2rem;
 }
 
 .footer-section li {
@@ -1012,13 +1012,9 @@ EF9A08 yellow
     flex-direction: column;
     justify-content: flex-start;
     height:100%;
-    padding:2%;
+    padding:2rem;
 }
 
 .padding_left {
-    padding-left:2.5%;
-}
-
-.footer-section span,h3 {
-    word-break: break-all;
+    padding-left:0.5rem;
 }

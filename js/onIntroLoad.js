@@ -24,6 +24,6 @@ window.onload = function() {
        //background-color:rgba(0, 0, 0, 0.85);
        //gridElement.style.background = "#fdf5e7";
        
-       gridElement.style.opacity = "0.3";
+       //gridElement.style.opacity = "0.3";
     }, images.length * 500); 
 };   
