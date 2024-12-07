@@ -798,7 +798,8 @@ EF9A08 yellow
 
 .image-details-show img {
     width:60%;
-    object-fit: cover;
+    height:100%;
+    overflow: auto;
 }
 
 .image-details-show p {
