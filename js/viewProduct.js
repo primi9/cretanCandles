@@ -1,5 +1,6 @@
 const closeButton =  document.getElementById('closeButton');
 const blurElement = document.getElementById("blurDiv");
+const arrowsElement = document.getElementById("arrows");
 //create a modal element that I fill with different img and p every time, depending on which product the user clicked
 const modal = document.getElementById('productModal');
 const modalImage = modal.querySelector('img');
@@ -23,6 +24,7 @@ function displayFocusedImage(element,index) {
     blurElement.style.display = "block"; // blur the page, except for the focused product (modal)
     modal.style.display = "flex"; // display the product in focused mode
     closeButton.style.display = "block";//display a  close button
+    arrowsElement.style.display = "block";
     document.body.style.overflow = "hidden";//make the page un - scrollable when user is checking out the product
 }
 
@@ -59,6 +61,8 @@ function closeModal() {
     blurElement.style.display = "none";
     closeButton.style.display = "none";
     modal.style.display = "none";
+    arrowsElement.style.display = "none";
     document.body.style.overflow = "scroll";
+    
     currentFocusedProduct = 0;
 }

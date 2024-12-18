@@ -790,14 +790,16 @@ EF9A08 yellow
 .image-details-show {
     display:none;
     flex-direction: row;
-    position: fixed;
+    flex-wrap: wrap;
+    position:fixed;
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
+    
     align-items: center;
     z-index: 100;
-    width:100dvw;
-    height: calc(100dvw * 0.6 * 285/395);
+    width:90dvw;
+    height: calc(90dvw * 0.6 * 285/395);
 }
 
 .image-details-show img {
@@ -807,7 +809,7 @@ EF9A08 yellow
 }
 
 .image-details-show p {
-    width:30%;
+    width:40%;
     max-height: 100%;
     text-align: center;
     word-wrap:break-word;
@@ -815,6 +817,23 @@ EF9A08 yellow
     margin:0;
     color: white;
     overflow:auto;
+}
+
+@media (max-width:600px) {
+
+    .image-details-show {
+        height:auto;
+        overflow: auto;
+    }
+
+    .image-details-show img {
+        width:100%;
+    }
+
+    .image-details-show p {
+        padding-top:2rem;
+        width:100%;
+    }
 }
 
 .hidden-product-description {
@@ -850,8 +869,14 @@ EF9A08 yellow
   cursor: pointer;
 }
 
+.arrowContainer {
+    display:none;
+}
+
 .prevArrow, .nextArrow {
-  width:5%;
+  position: fixed;
+  top:50%;
+  transform: translateY(-50%);
   text-align: center;
   padding: 0.4rem;
   color: white;
@@ -859,6 +884,15 @@ EF9A08 yellow
   font-weight: bold;
   font-size: 1.5rem;
   transition: 0.6s ease;
+  z-index: 100;
+}
+
+.prevArrow {
+    left:0;
+}
+
+.nextArrow {
+    right: 0;
 }
 
 .prevArrow:hover, .nextArrow:hover {

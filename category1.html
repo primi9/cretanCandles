@@ -135,12 +135,14 @@
     
     <!--When a product is clicked-->
     <div id = "productModal" class = "image-details-show">
-      <button class="prevArrow" onclick="arrowPressed(-1)">&#10094;</button>
       <img src="" alt="" >
       <p></p>
+    </div>
+
+    <div id = "arrows" class = "arrowContainer">
+      <button class="prevArrow" onclick="arrowPressed(-1)">&#10094;</button>
       <button class="nextArrow" onclick="arrowPressed(1)">&#10095;</button>
     </div>
-    
     <span id = "closeButton" class="close-button" onclick="closeModal()">&times;</span>
     <div id = "blurDiv" class = "blur-overlay"></div>
     
