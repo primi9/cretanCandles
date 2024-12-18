@@ -17,8 +17,7 @@
       <!-- bootstrap css -->
 
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" type="text/css" href="css/style.css">
+      
       <!-- Responsive-->
       <link rel="stylesheet" href="css/responsive.css">
       <!-- fevicon -->
@@ -31,6 +30,8 @@
       <link rel="stylesheet" href="css/owl.carousel.min.css">
       <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="css/style.css">
    </head>
 
    <body>
@@ -88,42 +89,42 @@
     </div>
 
     <div class = "image-products-container">
-        <div class = "product-container" id = "Product1">
+        <div data-index = "1" class = "product-container" id = "Product1">
             <img src="images/img-5.png" alt="Image 1" >
             <span>Details</span>
             <p class = "hidden-product-description"> 
                 tedo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1p
             </p>
         </div>
-        <div  class = "product-container" id = "Product2">
+        <div data-index = "2" class = "product-container" id = "Product2">
             <img src="images/img-5.png" alt="Image 2" >
             <span>Details</span>
             <p class = "hidden-product-description"> 
                 edo mpainei h perigrafh gia to product 2
             </p>
         </div>
-        <div  class = "product-container" id = "Product3">
+        <div data-index = "3" class = "product-container" id = "Product3">
             <img src="images/img-5.png" alt="Image 3" >
             <span>Details</span>
             <p class = "hidden-product-description"> 
                 edo mpainei h perigrafh gia to product 3
             </p>
         </div>
-        <div  class = "product-container" id = "Product4">
+        <div data-index = "4" class = "product-container" id = "Product4">
             <img src="images/img-5.png" alt="Image 4" >
             <span>Details</span>
             <p class = "hidden-product-description"> 
                 edo mpainei h perigrafh gia to product 4
             </p>
         </div>
-        <div  class = "product-container" id = "Product5">
+        <div data-index = "5" class = "product-container" id = "Product5">
             <img src="images/img-5.png" alt="Image 5" >
             <span>Details</span>
             <p class = "hidden-product-description"> 
                 edo mpainei h perigrafh gia to product 5
             </p>
         </div>
-        <div  class = "product-container" id = "Product6">
+        <div data-index = "6" class = "product-container" id = "Product6">
             <img src="images/img-5.png" alt="Image 6" >
             <span>Details</span>
             <p class = "hidden-product-description"> 
@@ -134,9 +135,12 @@
     
     <!--When a product is clicked-->
     <div id = "productModal" class = "image-details-show">
-        <img src="" alt="" >
-        <p></p>
+      <button class="prevArrow" onclick="arrowPressed(-1)">&#10094;</button>
+      <img src="" alt="" >
+      <p></p>
+      <button class="nextArrow" onclick="arrowPressed(1)">&#10095;</button>
     </div>
+    
     <span id = "closeButton" class="close-button" onclick="closeModal()">&times;</span>
     <div id = "blurDiv" class = "blur-overlay"></div>
     
