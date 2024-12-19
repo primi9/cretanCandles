@@ -25,7 +25,7 @@ function displayFocusedImage(element,index) {
     modal.style.display = "flex"; // display the product in focused mode
     closeButton.style.display = "block";//display a  close button
     arrowsElement.style.display = "block";
-    document.body.style.overflow = "hidden";//make the page un - scrollable when user is checking out the product
+    document.body.style.overflowY = "hidden";//make the page un - scrollable when user is checking out the product
 }
 
 //add an event listener to all product containers
@@ -62,7 +62,7 @@ function closeModal() {
     closeButton.style.display = "none";
     modal.style.display = "none";
     arrowsElement.style.display = "none";
-    document.body.style.overflow = "scroll";
+    document.body.style.overflowY = "auto";
     
     currentFocusedProduct = 0;
 }
