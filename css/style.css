@@ -842,6 +842,18 @@ EF9A08 yellow
     overflow:auto;
 }
 
+@media (min-aspect-ratio: 16/9){
+    .image-details-show {
+        height:70dvh;
+    }
+
+    .image-details-show img {
+        height:100%;
+        aspect-ratio: 26/19;
+        width:auto;
+    }
+}
+
 @media (max-width:600px) {
 
     .image-details-show {
