@@ -204,7 +204,7 @@ button {
     width: 100%;
     
     min-height:30dvh;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  url("../images/sea.jpg");
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  url("images/sea.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -345,7 +345,7 @@ EF9A08 yellow
     min-height:40%;
     z-index: 100;
     flex-direction: column;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  url("../images/sea.jpg");
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  url("images/sea.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -807,143 +807,7 @@ EF9A08 yellow
 
 /*WHEN AN IMAGE IS CLICKED*/
 
-.image-details-show {
-    display:none;
-    flex-direction: row;
-    flex-wrap: wrap;
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
-    align-items: center;
-    z-index: 100;
-    width:85dvw;
-    height: calc(85dvw * 0.6 / var(--product-image-aspect-ratio));
-}
 
-.image-details-show img {
-    width:60%;
-    aspect-ratio: var(--product-image-aspect-ratio);
-    overflow: auto;
-}
-
-.image-details-show p {
-    width:40%;
-    max-height: 100%;
-    text-align: center;
-    word-wrap:break-word;
-    padding:0 1rem;
-    margin:0;
-    color: black;
-    overflow:auto;
-}
-
-@media (min-aspect-ratio: 16/9){
-    .image-details-show {
-        height:70dvh;
-    }
-
-    .image-details-show img {
-        width:auto;
-        height:100%;
-        aspect-ratio: var(--product-image-aspect-ratio);
-    }
-
-    .image-details-show p {
-        width:calc(85dvw - 70dvh * var(--product-image-aspect-ratio));
-    }
-}
-
-@media (max-width:600px) {
-
-    .image-details-show {
-        width:75dvw;
-        height: auto;
-        max-height: 100dvh;
-        overflow: auto;
-    }
-
-    .image-details-show img {
-        width:100%;
-        height:auto;
-    }
-
-    .image-details-show p {
-        padding-top:1rem;
-        width:100%;
-        max-height:none;        
-    }
-}
-
-.hidden-product-description {
-    display:none;
-}
-
-.blur-overlay {
-    display:none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color:rgba(255, 255, 255,1);
-    z-index: 10;
-}
-
-.close-button {
-    display:none;
-    color: black;
-    position: fixed;
-    top: 0;
-    right: 1%;
-    font-size: 4rem;
-    font-weight: bold;
-    z-index: 100;
-}
-
-.close-button:hover,
-.close-button:focus {
-  color: #999;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.arrowContainer {
-    display:none;
-}
-
-.prevArrow, .nextArrow {
-  position: fixed;
-  top:50%;
-  transform: translateY(-50%);
-  text-align: center;
-  padding: 0.4rem;
-  color: black;
-  background-color: white;
-  font-weight: bold;
-  font-size: 2rem;
-  transition: 0.6s ease;
-  z-index: 100;
-}
-
-.prevArrow {
-    left:1%;
-}
-
-.nextArrow {
-    right:1%;
-}
-
-.prevArrow:hover, .nextArrow:hover {
-  cursor: pointer;
-  color: orange;
-}
-
-@media (hover: none) {
-    .prevArrow:hover, .nextArrow:hover {
-        color: white;
-    }
-}
 
 /*Contact Us Page*/
 
@@ -1118,11 +982,162 @@ EF9A08 yellow
     padding-left:0.5rem;
 }
 
+.image-slideshow {
+    display:none;
+    z-index:100;
+    overflow: hidden;
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width:85dvw;
+    height: calc(85dvw * 0.6 / var(--product-image-aspect-ratio));
+}
 
-/*to delete*/
-.test-button{
-    width:fit-content;
-    margin:5rem auto;
-    padding:2rem;
-    border:0.5rem;
+.image-slideshow-wrapper {
+    display:flex;
+    width:100%;
+    height:100%;
+}
+
+.image-details-show {
+    display:flex;
+    flex-shrink: 0;
+    padding:1rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width:100%;
+    height:100%;
+}
+
+.image-details-show img {
+    width:60%;
+    aspect-ratio: var(--product-image-aspect-ratio);
+    overflow: auto;
+}
+
+.image-details-show p {
+    width:40%;
+    max-height: 100%;
+    text-align: center;
+    word-wrap:break-word;
+    padding:0 1rem;
+    margin:0;
+    color: black;
+    overflow:auto;
+}
+
+@media (min-aspect-ratio: 16/9){
+
+    .image-slideshow {
+        height:70dvh;
+    }
+
+    .image-details-show img {
+        width:auto;
+        height:100%;
+    }
+
+    .image-details-show p {
+        width:calc(85dvw - 70dvh * var(--product-image-aspect-ratio));
+    }
+}
+
+@media (max-width:600px) {
+
+    .image-slideshow {
+        width:75dvw;
+        height:auto;
+        max-height: 100dvh;
+    }
+
+    .image-details-show {
+        max-height: 100dvh;
+        overflow: auto;
+        padding:1rem;
+    }
+
+    .image-details-show img {
+        width:100%;
+        height:auto;
+    }
+
+    .image-details-show p {
+        padding-top:1rem;
+        width:100%;
+        max-height:none;        
+    }
+}
+
+.blur-overlay {
+    display:none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(255, 255, 255,1);
+    z-index: 10;
+}
+
+.close-button {
+    display:none;
+    color: black;
+    position: fixed;
+    top: 0;
+    right: 1%;
+    font-size: 4rem;
+    font-weight: bold;
+    z-index: 100;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.arrowContainer {
+    display:none;
+}
+
+.prevArrow, .nextArrow {
+  position: fixed;
+  top:50%;
+  transform: translateY(-50%);
+  text-align: center;
+  padding: 0.4rem;
+  color: black;
+  background-color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  transition: 0.6s ease;
+  z-index: 100;
+}
+
+.prevArrow {
+    left:1%;
+}
+
+.nextArrow {
+    right:1%;
+}
+
+.prevArrow:hover, .nextArrow:hover {
+  cursor: pointer;
+  color: orange;
+}
+
+@media (hover: none) {
+    .prevArrow:hover, .nextArrow:hover {
+        color: black;
+    }
+}
+
+.prevArrow:disabled, .nextArrow:disabled {
+  color: grey; /* Change text color */
+  cursor: not-allowed; /* Disable pointer cursor */
+  pointer-events: none; /* Remove hover effects */
 }

@@ -1,6 +1,7 @@
 const closeButton =  document.getElementById('closeButton');
 const blurElement = document.getElementById("blurDiv");
 const arrowsElement = document.getElementById("arrows");
+
 //create a modal element that I fill with different img and p every time, depending on which product the user clicked
 const modal = document.getElementById('productModal');
 const modalImage = modal.querySelector('img');
@@ -10,6 +11,27 @@ const productContainers = document.querySelectorAll('.product-container');
 const nProducts = productContainers.length;
 
 let currentFocusedProduct = 0;//0 means no image focused.
+
+function keyPressHandler(event) {
+
+    if(currentFocusedProduct == 0)
+        return;
+
+    if (event.key == "Escape"){
+        closeModal();
+        return;
+    }
+
+    if (event.key == "ArrowLeft"){
+        arrowPressed(-1);
+        return;
+    }
+
+    if (event.key == "ArrowRight"){
+        arrowPressed(1);
+        return;
+    }
+}
 
 function displayFocusedImage(element,index) {
     productImg = element.children[0];
@@ -35,6 +57,8 @@ productContainers.forEach((element,index) => {
         displayFocusedImage(element);
     });
 });
+
+document.addEventListener('keydown', keyPressHandler);
 
 //when an arrow is clicked:
 function arrowPressed(n){
