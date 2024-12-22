@@ -407,47 +407,6 @@ EF9A08 yellow
     background-color: #EF9A08;
 }
 
-/*
-.enter-button {
-    display:none;
-    opacity: 0;
-
-    margin:auto;
-    
-    position: absolute;
-    top:50%;
-    right:50%;
-    z-index: 100;
-    transform: translate(50%, 50%);
-
-    width:fit-content;
-    height:auto;
-    font-size:18px;
-    font-weight:600;
-    background-color: #042789;
-    color: white;
-    text-align:center;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding:10px;
-    border-radius: 20px;
-}
-
-.enter-ref{
-    display:block;
-    width:fit-content;
-    font-size:18px;
-    background-color: #221e10;
-    color: white;
-    text-align:center;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding:10px 15px;
-    margin:20px 10px;
-    border-radius: 20px;
-}
-*/
-
 .images-grid {
     
     display: grid;
@@ -666,97 +625,12 @@ EF9A08 yellow
     text-align: center;
 }
 
-/*
-.categories-section {
-    display:grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-template-rows: repeat(2,1fr);
-    width:90dvw;
-    margin-left:auto;
-    margin-right:auto;
-    column-gap:3%;
-    row-gap: 2.5dvw;
-    padding:2.8%;
-}
-
-@media(max-width:730px) {
-    .categories-section {
-        grid-template-rows: repeat(4,1fr);
-        grid-template-columns: 1fr;
-        row-gap: 6dvw;
-    }
-}
-
-.category-description {
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
-    width:100%;
-    aspect-ratio: calc(1.667 * var(--categories-image-aspect-ratio));
-}
-
-.category-description:hover{
-    transform: scale(1.1);
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-
-    h2 {
-        color:#042789;
-    }
-
-    p {
-        color:#1f1f1f;
-    }
-}
-
-.category-description img{
-    width:60%;
-    height:100%;
-    object-fit: cover;
-}
-
-.category-text-description {
-    width:40%;
-    height:100%;
-    padding:2%;
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: auto;
-    background-color: rgb(244, 247, 248);
-    margin-top: auto;
-}
-
-.category-text-description h2 {
-    font-size: 20px;
-    padding:1%;
-    word-wrap: break-word;
-    word-break: break-all;
-    color: #46371d;
-    text-align: center;
-    hyphens: auto;
-    margin-top:auto;
-}
-
-.category-text-description p {
-    word-break: break-all;
-    word-wrap: break-word;
-
-    overflow-wrap: break-word;
-    text-align: center;
-    hyphens:auto;
-    margin-bottom:auto;
-}*/
-
 .image-products-container {
     display: grid;
     width:90dvw;
     height:auto;
     margin-left:auto;
     margin-right:auto;
-    /* gap:30px 15px;fffffffffffffffffffffffffffffffffffffffffffffffffffffffff
-    fffffffffffffffff
-    na alakso*/
     row-gap:2rem;
     column-gap: 1.5rem;
     grid-template-rows: repeat(2, 1fr);
@@ -790,10 +664,9 @@ EF9A08 yellow
 
 .product-container:hover {
     cursor: pointer;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-
     span {
-        color:#042789;
+        color:#3262e7;
+        text-decoration: underline;
     }
 }
 
@@ -804,7 +677,7 @@ EF9A08 yellow
 }
 
 .product-container span{
-    padding-top:5px 0 0 0;
+    padding-top:0.2rem;
     margin:0;
     word-wrap: break-word;
     text-align: center;
@@ -835,7 +708,7 @@ EF9A08 yellow
     aspect-ratio: var(--product-image-aspect-ratio);
     overflow: auto;
     border-radius: 3rem;
-    box-shadow: 0px 1rem 2rem rgba(65, 46, 30, 0.2);
+    box-shadow: 0px 0.5rem 1rem rgba(255, 229, 207, 0.1);
 }
 
 .image-details-show p {
@@ -845,7 +718,7 @@ EF9A08 yellow
     word-wrap:break-word;
     padding:0 1rem;
     margin:0;
-    color: black;
+    color: white;
     overflow:auto;
 }
 
@@ -895,17 +768,18 @@ EF9A08 yellow
     left: 0;
     width: 100%;
     height: 100%;
-    background-color:rgba(253, 228, 211,1);
+    background-color:rgba(39, 25, 1 , 1);
     z-index: 10;
 }
 
 .close-button {
     display:none;
-    color: black;
+    color: white;
     position: fixed;
     top: 0;
     right: 1%;
     font-size: 4.5rem;
+    line-height: 1;
     font-weight: bold;
     z-index: 100;
 }
@@ -927,7 +801,7 @@ EF9A08 yellow
   transform: translateY(-50%);
   text-align: center;
   padding: 0.4rem;
-  color: black;
+  color: white;
   background-color: transparent;
   font-weight: bold;
   font-size: 2.5rem;
@@ -950,7 +824,7 @@ EF9A08 yellow
 
 @media (hover: none) {
     .prevArrow:hover, .nextArrow:hover {
-        color: black;
+        color: white;
     }
 }
 
