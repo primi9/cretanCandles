@@ -18,6 +18,7 @@
 
 :root {
     --categories-image-aspect-ratio: 2/3;
+    --product-image-aspect-ratio: 1.3684;
 }
 
 html {
@@ -347,7 +348,7 @@ EF9A08 yellow
     display:none;
     opacity:0;
     width:100%;
-    min-height:40%;
+    min-height:30%;
     z-index: 100;
     flex-direction: column;
     background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),  url("../images/sea.jpg");
@@ -499,7 +500,8 @@ EF9A08 yellow
     align-items: center;
     justify-content: center;
     background-color: rgb(244, 247, 248);
-    border-left: 0.3rem groove #635c5c;
+    border-left: 0.1rem groove #635c5c;
+    border-right: 0.1rem groove #635c5c;
 }
 
 .services-text h1 {
@@ -559,6 +561,8 @@ EF9A08 yellow
     width:60%;
     height:100%;
     object-fit: cover;
+    border-radius: 2rem;
+    box-shadow: 0px 1rem 2rem rgba(65, 46, 30, 0.2);
 }
 
 .category-text-description {
@@ -795,6 +799,8 @@ EF9A08 yellow
 
 .product-container img {
     width:100%;
+    border-radius: 2rem;
+    box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .product-container span{
@@ -818,17 +824,18 @@ EF9A08 yellow
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
-    
     align-items: center;
     z-index: 100;
     width:85dvw;
-    height: calc(85dvw * 0.6 * 19/26);
+    height: calc(85dvw * 0.6  / var(--product-image-aspect-ratio));
 }
 
 .image-details-show img {
     width:60%;
-    aspect-ratio: 26/19;
+    aspect-ratio: var(--product-image-aspect-ratio);
     overflow: auto;
+    border-radius: 3rem;
+    box-shadow: 0px 1rem 2rem rgba(65, 46, 30, 0.2);
 }
 
 .image-details-show p {
@@ -838,7 +845,7 @@ EF9A08 yellow
     word-wrap:break-word;
     padding:0 1rem;
     margin:0;
-    color: white;
+    color: black;
     overflow:auto;
 }
 
@@ -849,8 +856,11 @@ EF9A08 yellow
 
     .image-details-show img {
         height:100%;
-        aspect-ratio: 26/19;
         width:auto;
+    }
+
+    .image-details-show p {
+        width:calc(85dvw - 70dvh * var(--product-image-aspect-ratio));
     }
 }
 
@@ -885,17 +895,17 @@ EF9A08 yellow
     left: 0;
     width: 100%;
     height: 100%;
-    background-color:rgba(0, 0, 0, 1);
+    background-color:rgba(253, 228, 211,1);
     z-index: 10;
 }
 
 .close-button {
     display:none;
-    color: white;
+    color: black;
     position: fixed;
     top: 0;
-    right: 2%;
-    font-size: 4rem;
+    right: 1%;
+    font-size: 4.5rem;
     font-weight: bold;
     z-index: 100;
 }
@@ -917,10 +927,10 @@ EF9A08 yellow
   transform: translateY(-50%);
   text-align: center;
   padding: 0.4rem;
-  color: white;
-  background-color: black;
+  color: black;
+  background-color: transparent;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 2.5rem;
   transition: 0.6s ease;
   z-index: 100;
 }
@@ -940,7 +950,7 @@ EF9A08 yellow
 
 @media (hover: none) {
     .prevArrow:hover, .nextArrow:hover {
-        color: white;
+        color: black;
     }
 }
 
