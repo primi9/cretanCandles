@@ -500,7 +500,9 @@ EF9A08 yellow
     align-items: center;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s;
     width:100%;
+    max-height:100dvh;
     aspect-ratio: calc(1.667 * var(--categories-image-aspect-ratio));
+    background-color: rgb(244, 247, 248);
 }
 
 .category-description:hover{
@@ -531,12 +533,11 @@ EF9A08 yellow
     display:flex;
     flex-direction: column;
     overflow: auto;
-    background-color: rgb(244, 247, 248);
     margin-top: auto;
 }
 
 .category-text-description h2 {
-    font-size: 1.5rem;/*20px*/
+    font-size: 1.5rem;
     padding:1.5%;
     color: #46371d;
     text-align: center;
@@ -544,7 +545,6 @@ EF9A08 yellow
 }
 
 .category-text-description p {
-
     word-break: break-all;
     text-align: center;
     hyphens:auto;
