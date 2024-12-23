@@ -761,8 +761,11 @@ EF9A08 yellow
     display:none;
 }
 
-.blur-overlay {
+.handleContainer {
     display:none;
+}
+
+.blur-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -773,7 +776,6 @@ EF9A08 yellow
 }
 
 .close-button {
-    display:none;
     color: white;
     position: fixed;
     top: 0;
@@ -789,10 +791,6 @@ EF9A08 yellow
   color: #999;
   text-decoration: none;
   cursor: pointer;
-}
-
-.arrowContainer {
-    display:none;
 }
 
 .prevArrow, .nextArrow {

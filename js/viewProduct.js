@@ -1,40 +1,41 @@
-const closeButton =  document.getElementById('closeButton');
-const blurElement = document.getElementById("blurDiv");
-const arrowsElement = document.getElementById("arrows");
-//create a modal element that I fill with different img and p every time, depending on which product the user clicked
-const modal = document.getElementById('productModal');
-const modalImage = modal.querySelector('img');
+function keyPressHandler(event) {
 
-//get all the product-containers
-const productContainers = document.querySelectorAll('.product-container');
-const nProducts = productContainers.length;
+    if(currentFocusedProduct == 0)
+        return;
 
-let currentFocusedProduct = 0;//0 means no image focused.
+    if (event.key == "Escape"){
+        closeModal();
+        return;
+    }
 
-function displayFocusedImage(element,index) {
+    if (event.key == "ArrowLeft"){
+        arrowPressed(-1);
+        return;
+    }
+
+    if (event.key == "ArrowRight"){
+        arrowPressed(1);
+        return;
+    }
+}
+
+function displayFocusedImage(element) {
     productImg = element.children[0];
     productDetails = element.children[2];
     
     modalImage.src = productImg.src; 
     modalImage.alt = productImg.alt;
-    console.log(productDetails.textContent);
-    modal.querySelector('p').textContent = productDetails.textContent;
 
-    //updateDimensions(); // update dimensions of modal so that it fits well on every screen size
-    blurElement.style.display = "block"; // blur the page, except for the focused product (modal)
-    modal.style.display = "flex"; // display the product in focused mode
-    closeButton.style.display = "block";//display a  close button
-    arrowsElement.style.display = "block";
-    document.body.style.overflowY = "hidden";//make the page un - scrollable when user is checking out the product
+    modal.querySelector('p').textContent = productDetails.textContent;
 }
 
-//add an event listener to all product containers
-productContainers.forEach((element,index) => {
-    element.addEventListener("click" , () => {
-        currentFocusedProduct = index + 1;
-        displayFocusedImage(element);
-    });
-});
+function focusProduct(element){
+    displayFocusedImage(element);
+
+    handleButtons.style.display = "block"; // display the handlers
+    modal.style.display = "flex"; // display the product in focused mode
+    document.body.style.overflowY = "hidden";//make the page un - scrollable when user is checking out the product
+}
 
 //when an arrow is clicked:
 function arrowPressed(n){
@@ -58,11 +59,30 @@ function arrowPressed(n){
 //when close button is clicked
 function closeModal() {
     console.log("close button clicked");
-    blurElement.style.display = "none";
-    closeButton.style.display = "none";
+    handleButtons.style.display = "none";
     modal.style.display = "none";
-    arrowsElement.style.display = "none";
     document.body.style.overflowY = "auto";
     
     currentFocusedProduct = 0;
 }
+
+const handleButtons = document.getElementById("handleButtons");
+//create a modal element that I fill with different img and p every time, depending on which product the user clicked
+const modal = document.getElementById('productModal');
+const modalImage = modal.querySelector('img');
+
+//get all the product-containers
+const productContainers = document.querySelectorAll('.product-container');
+const nProducts = productContainers.length;
+
+let currentFocusedProduct = 0;//0 means no image focused.
+
+document.addEventListener('keydown', keyPressHandler);
+
+//add an event listener to all product containers
+productContainers.forEach((element,index) => {
+    element.addEventListener("click" , () => {
+        currentFocusedProduct = index + 1;
+        focusProduct(element);
+    });
+});
