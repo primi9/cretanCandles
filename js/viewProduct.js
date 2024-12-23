@@ -37,9 +37,27 @@ function focusProduct(element){
     document.body.style.overflowY = "hidden";//make the page un - scrollable when user is checking out the product
 }
 
+function waitOpacityChange(opacityValue){
+
+    modal.style.opacity = opacityValue;
+
+    const promise = new Promise((resolve) => {
+        modal.addEventListener("transitionend", () => {
+            resolve();
+        }, {once: true});
+    });
+
+    return promise;
+}
+
 //when an arrow is clicked:
-function arrowPressed(n){
+async function arrowPressed(n){
     
+    if(processing)
+        return;
+
+    processing = true;
+
     if (n == 1) {//if pressed next arrow
         if (currentFocusedProduct == nProducts)
             currentFocusedProduct = 1;
@@ -53,17 +71,63 @@ function arrowPressed(n){
             currentFocusedProduct -= 1;
     }
     const currentElement = document.querySelector(`[data-index="${currentFocusedProduct}"]`);
-    displayFocusedImage(currentElement);
+
+    await waitOpacityChange("0");
+    displayFocusedImage(currentElement);    
+    await waitOpacityChange("1");
+
+    processing = false;
 }
 
 //when close button is clicked
 function closeModal() {
     console.log("close button clicked");
     handleButtons.style.display = "none";
+    
     modal.style.display = "none";
     document.body.style.overflowY = "auto";
     
     currentFocusedProduct = 0;
+}
+
+let startX = 0;
+let minSlideX = 50;
+let processing = false; // flag indicating that image in view mode is the middle of transitioning
+
+function touchStart(event){
+    console.log("touch start");
+    startX = event.touches[0].clientX;
+    console.log(startX);
+}
+
+function touchEnd(event) {
+
+    console.log("touch end");
+    const endX = event.changedTouches[0].clientX;
+    console.log(endX);
+
+    if ((endX - startX) > minSlideX)
+        arrowPressed(-1);
+    else if ((endX - startX < - minSlideX))
+        arrowPressed(1);
+}
+
+function mouseStart(event){
+    console.log("mpuse start");
+    startX = event.clientX;
+    console.log(startX);
+}
+
+function mouseEnd(event) {
+
+    console.log("mouse end");
+    const endX = event.clientX;
+    console.log(endX);
+
+    if ((endX - startX) > minSlideX)
+        arrowPressed(-1);
+    else if ((endX - startX < - minSlideX))
+        arrowPressed(1);
 }
 
 const handleButtons = document.getElementById("handleButtons");
@@ -86,3 +150,10 @@ productContainers.forEach((element,index) => {
         focusProduct(element);
     });
 });
+
+modal.addEventListener('touchstart',touchStart);
+modal.addEventListener('touchend', touchEnd);
+modal.addEventListener("touchcancel", touchEnd);
+
+modal.addEventListener('mousedown',mouseStart);
+modal.addEventListener('mouseup', mouseEnd);

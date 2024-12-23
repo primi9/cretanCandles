@@ -701,6 +701,11 @@ EF9A08 yellow
     z-index: 100;
     width:85dvw;
     height: calc(85dvw * 0.6  / var(--product-image-aspect-ratio));
+    transition: opacity 0.2s ease;
+    opacity: 1;
+    touch-action: none; /* Disable default touch actions */
+    user-select: none; /* Prevent text selection during dragging */
+    cursor:grab;
 }
 
 .image-details-show img {
@@ -709,6 +714,7 @@ EF9A08 yellow
     overflow: auto;
     border-radius: 3rem;
     box-shadow: 0px 0.5rem 1rem rgba(255, 229, 207, 0.1);
+    pointer-events: none;
 }
 
 .image-details-show p {
