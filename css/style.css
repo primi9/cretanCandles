@@ -743,6 +743,16 @@ EF9A08 yellow
     }
 }
 
+@media (min-aspect-ratio: 2) {
+    .image-details-show {
+        height:60dvh;
+    }
+
+    .image-details-show p {
+        width:calc(85dvw - 60dvh * var(--product-image-aspect-ratio));
+    }
+}
+
 @media (max-width:600px) {
 
     .image-details-show {
