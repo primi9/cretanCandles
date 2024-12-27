@@ -424,10 +424,13 @@ EF9A08 yellow
     overflow: hidden;
 }
 
-.img-container2 img , .img-container2 video {
+.to-reveal {
     object-fit: cover;
     width:100%;
     height:100%;
+    transform: scale(0); /* Start fully scaled down */
+    transform-origin: center;
+    transition:  transform 1s ease
 }
 
 @media (max-width: 600px) {
@@ -435,11 +438,6 @@ EF9A08 yellow
         grid-template-rows:repeat(3,1fr);
         grid-template-columns: repeat(2, 1fr); 
     }
-}
-
-.to-reveal {
-    transition: opacity 0.6s ease-in-out;
-    opacity: 0;
 }
 
 @starting-style {

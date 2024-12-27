@@ -9,9 +9,9 @@ window.onload = function() {
  
     images.forEach((image, index) => {
           setTimeout(() => {
-          image.style.opacity = "1";
+           image.style.transform = "scale(1)";
           //image.style.transform = "translateY(0)";
-       }, index * 500);
+       }, index * 600);
     });
     
     setTimeout(() => {
@@ -25,5 +25,5 @@ window.onload = function() {
        //gridElement.style.background = "#fdf5e7";
        
        //gridElement.style.opacity = "0.3";
-    }, images.length * 500); 
+    }, images.length * 650); 
 };   
