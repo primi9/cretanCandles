@@ -380,6 +380,18 @@ EF9A08 yellow
     transition: opacity 0.8s ease-in-out; 
 } 
 */
+
+.front-image {
+    position:fixed;
+    width:90dvw;
+    height:90dvh;
+    top:5dvh;
+    right:5dvw;
+
+    transform-origin: top left;
+    transition: all 0.5s ease-in;
+}
+
 .reveal-after {
     display:flex;
     opacity:1;
@@ -421,7 +433,6 @@ EF9A08 yellow
 .img-container2 {
     width:100%;
     height:100%;
-    overflow: hidden;
 }
 
 .img-container2 img , .img-container2 video {
