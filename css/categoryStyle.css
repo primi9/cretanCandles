@@ -35,7 +35,7 @@ body {
     font-weight: normal;
     overflow-x: hidden !important;
     height: 100%;
-    background-color:rgb(218, 233, 248);
+    background-color:white;
 }
 
 @media (min-width: 100px) {
@@ -378,14 +378,15 @@ EF9A08 yellow
 }
 
 .products-container {
-    width:80%;
+    width:70%;
     display: flex;
     flex-direction: column;
-    background-color:rgb(235, 247, 247);
+    background-color:rgb(246, 250, 250);
+    border-radius: 1rem;
 }
 
 .category-detailed-description {
-    max-width:20%;
+    max-width:30%;
     text-align: center;
     font-size: 1rem;
     padding:0.5rem;
@@ -399,7 +400,6 @@ EF9A08 yellow
     max-height:75dvh;
     overflow:hidden;
     border-radius: 1rem;
-    justify-content: center;
 }
 
 .products-focused-image img {
@@ -418,7 +418,12 @@ EF9A08 yellow
     margin-left: auto;
 }
 
-@media (max-width:800px) {
+@media (max-width:600px) {
+
+    .category-detailed-section {
+        width:100dvw;
+    }
+
     .products-container{
         width:100%;
     }
@@ -430,7 +435,21 @@ EF9A08 yellow
     }
 
     .products-focused-image {
-        max-height: 60dvh;
+        max-height: 70dvh;
+    }
+
+    .products-focused-image img {
+        max-width:70%;
+    }
+
+    .products-focused-image p {
+        max-width: 30%;
+    }
+}
+
+@media (min-aspect-ratio: 16/9 ){
+    .products-focused-image {
+        max-height: 85dvh;
     }
 
     .products-focused-image img {
@@ -438,16 +457,17 @@ EF9A08 yellow
     }
 
     .products-focused-image p {
-        max-width: 20%;
+        max-width: 40%;
     }
 }
 
 .arrow {
-    width:5%;
+    width:10%;
     height:fit-content;
     margin:auto;
     color:#042789;
     background-color: transparent;
+    font-size: 2rem;
 }
 
 .arrow:hover {
@@ -467,7 +487,7 @@ EF9A08 yellow
 }
 
 .imageSlideContainer {
-    width:18%;
+    width:16%;
     padding: 0.2rem;
 }
 
