@@ -374,6 +374,7 @@ EF9A08 yellow
     display: flex;
     flex-direction: row;
     flex-wrap: wrap-reverse;
+    padding:1rem;
 }
 
 .products-container {
@@ -395,10 +396,10 @@ EF9A08 yellow
     flex-direction: row;
     width:100%;
     height:auto;
-    max-height:70dvh;
+    max-height:75dvh;
     overflow:hidden;
     border-radius: 1rem;
-    border-bottom: 0.2rem solid rgb(241, 231, 213);
+    justify-content: center;
 }
 
 .products-focused-image img {
@@ -429,11 +430,11 @@ EF9A08 yellow
     }
 
     .products-focused-image {
-        max-height: 80dvh;
+        max-height: 60dvh;
     }
 
     .products-focused-image img {
-        max-width:80%;
+        max-width:60%;
     }
 
     .products-focused-image p {
