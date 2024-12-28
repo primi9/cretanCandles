@@ -193,7 +193,7 @@ function leftArrowPressed(){
 
     slideStartIndex -= 1;
 
-    for(let i = 0; i < 5; i++)
+    for(let i = 0; i < imagesSlide.length; i++)
         imagesSlide[i].src = imageList[slideStartIndex + i];
 
     if(focusedIndex == imagesSlide.length - 1){

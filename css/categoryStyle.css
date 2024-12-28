@@ -381,13 +381,19 @@ EF9A08 yellow
     display: flex;
     flex-direction: column;
     background-color:rgb(235, 247, 247);
+}
 
+.category-detailed-description {
+    max-width:20%;
+    text-align: center;
+    font-size: 1rem;
+    padding:0.5rem;
 }
 
 .products-focused-image {
     display:flex;
     flex-direction: row;
-    width:90%;
+    width:100%;
     height:auto;
     max-height:70dvh;
     overflow:hidden;
@@ -411,11 +417,36 @@ EF9A08 yellow
     margin-left: auto;
 }
 
+@media (max-width:800px) {
+    .products-container{
+        width:100%;
+    }
+
+    .category-detailed-description {
+        max-width: none;
+        width:100%;
+        padding-bottom: 1.5rem;
+    }
+
+    .products-focused-image {
+        max-height: 80dvh;
+    }
+
+    .products-focused-image img {
+        max-width:80%;
+    }
+
+    .products-focused-image p {
+        max-width: 20%;
+    }
+}
+
 .arrow {
     width:5%;
     height:fit-content;
     margin:auto;
     color:#042789;
+    background-color: transparent;
 }
 
 .arrow:hover {
@@ -443,13 +474,6 @@ EF9A08 yellow
     width:100%;
     object-fit: cover;
     cursor:pointer;
-}
-
-.category-detailed-description {
-    max-width:20%;
-    text-align: center;
-    font-size: 1rem;
-    padding:0.5rem;
 }
 
 .active-slideShow-image {
