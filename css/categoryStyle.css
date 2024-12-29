@@ -321,7 +321,7 @@ EF9A08 yellow
 
 .category-header-text {
     width:90dvw;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin:1rem auto;
     color:#042789;
     padding:1rem;
@@ -348,7 +348,7 @@ EF9A08 yellow
 .category-detailed-description {
     max-width:30%;
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.3rem;
     padding:0.5rem;
 }
 
@@ -480,10 +480,8 @@ EF9A08 yellow
     object-fit: contain;
     transition: opacity 0.2s ease;
     opacity: 1;
-    touch-action: none;
     border-radius: 3rem;
     box-shadow: 0px 0.5rem 1rem rgba(255, 229, 207, 0.1);
-    pointer-events: none;
 }
 
 @media (max-aspect-ratio: 1.4){
@@ -686,8 +684,7 @@ EF9A08 yellow
     padding:1rem;
     display:flex;
     flex-direction: row;
-    
-    background-color: #5e5e5e;;
+    background-color: #4a5d8f;
     height: auto;
 }
 
