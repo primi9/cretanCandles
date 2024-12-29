@@ -35,7 +35,7 @@ body {
     font-weight: normal;
     overflow-x: hidden !important;
     height: 100%;
-    background-color:rgb(218, 233, 248);
+    background-color:white;
 }
 
 @media (min-width: 100px) {
@@ -108,47 +108,7 @@ a {
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
-/*
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    letter-spacing: 0;
-    font-weight: normal;
-    position: relative;
-    padding: 0 0 0 0;
-    font-weight: normal;
-    line-height: normal;
-    color: #111111;
-    margin: 0
-}
 
-h1 {
-    font-size: 24px
-}
-
-h2 {
-    font-size: 22px
-}
-
-h3 {
-    font-size: 18px
-}
-
-h4 {
-    font-size: 16px
-}
-
-h5 {
-    font-size: 14px
-}
-
-h6 {
-    font-size: 13px
-}
-*/
 *,
 *::after,
 *::before {
@@ -209,7 +169,7 @@ button {
 .header_section {
     width: 100%;
     
-    min-height:30dvh;
+    min-height:20dvh;
     background-color: #042789;
     background-position: center;
     background-repeat: no-repeat;

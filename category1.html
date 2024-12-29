@@ -15,6 +15,7 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <!-- bootstrap css -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
       <!-- fevicon -->
       <link rel="icon" href="images/fevicon.png" type="image/gif" />
@@ -78,16 +79,16 @@
    <section class = "category-detailed-section">
       <div id = "productsContainer" class = "products-container">
          <div class = "products-focused-image">
-            <img id = "focusedImage" src = "" alt = "mpla">
+            <img id = "focusedImage" src = "" alt = "mpla" onclick = "focusProduct()">
          </div>
 
          <div id = "imagesSlide" class = "images-slideshow">
             <button id = "leftArrow" class = "arrow" onclick="leftArrowPressed()">&#10094;</button>
-            <div class = "imageSlideContainer"><img class = "slideImage" src = ></div>
-            <div class = "imageSlideContainer"><img class = "slideImage" src = ></div>
-            <div class = "imageSlideContainer"><img class = "slideImage" src = ></div>
-            <div class = "imageSlideContainer"><img class = "slideImage" src = ></div>
-            <div class = "imageSlideContainer"><img class = "slideImage" src = ></div>
+            <div class = "imageSlideContainer"><img data-index = "1" class = "slideImage" src = ></div>
+            <div class = "imageSlideContainer"><img data-index = "2" class = "slideImage" src = ></div>
+            <div class = "imageSlideContainer"><img data-index = "3" class = "slideImage" src = ></div>
+            <div class = "imageSlideContainer"><img data-index = "4" class = "slideImage" src = ></div>
+            <div class = "imageSlideContainer"><img data-index = "5" class = "slideImage" src = ></div>
             <button id = "rightArrow" class = "arrow" onclick="rightArrowPressed()">&#10095;</button>
 
          </div>
@@ -143,14 +144,11 @@
     </div>
     -->
     <!--When a product is clicked-->
-    <div id = "productModal" class = "image-details-show">
-      <img src="" alt="" >
-      <p></p>
-    </div>
+    <img src="" alt="" id = "productModal" class = "image-details-show">
     
     <div id = "handleButtons" class = "handleContainer">
-      <button class="prevArrow" onclick="arrowPressed(-1)">&#10094;</button>
-      <button class="nextArrow" onclick="arrowPressed(1)">&#10095;</button>
+      <button class="prevArrowFocused" onclick="arrowPressed(-1)">&#10094;</button>
+      <button class="nextArrowFocused" onclick="arrowPressed(1)">&#10095;</button>
       <span  class="close-button" onclick="closeModal()">&times;</span>
       <div class = "blur-overlay"></div>
     </div>
@@ -199,4 +197,5 @@
     <script src="js/custom.js"></script>
     <script src ="js/lang.js"></script>
     <script src = "js/viewProduct.js"></script>
+
 </html>
