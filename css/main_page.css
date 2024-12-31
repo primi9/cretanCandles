@@ -68,7 +68,7 @@
 }
 
 .category-description img{
-    width:60%;
+    width:50%;
     height:100%;
     object-fit: cover;
     border-radius: 2rem;
@@ -76,7 +76,7 @@
 }
 
 .category-text-description {
-    width:40%;
+    width:50%;
     height:100%;
     padding:0.8dvw;
     display:flex;
