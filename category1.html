@@ -24,55 +24,80 @@
       <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
       <!-- style css -->
+      <link rel="stylesheet" href="css/responsive.css">
+
       <link rel="stylesheet" type="text/css" href="css/categoryStyle.css">
       <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
    </head>
 
    <body>
     <!--header section start -->
     <div class="header_section">
       <div class = "header-container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-           <div class = "logo-container ">
-              <a href="main_page.html" class = "logo"><img src="images/cclogo_changed_transparent.png"></a>
+      <nav class="navbar navbar-expand-xxl navbar-light bg-light">
+         <div class = "logo-container ">
+            <a href="main_page.html" class = "logo"><img src="images/cclogo_changed_transparent.png"></a>
+         </div>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+               <li class="nav-item active">
+                  <a class="nav-link" href="main_page.html" data-text = "home"></a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#" data-text = "about"></a>
+               </li>
+               <li class="nav-item ">
+                   <button aria-haspopup="true" aria-expanded="false" class="dropbtn" >
+                     <div data-text = "services" class = "nav-link"></div>
+                     <div class="dropdown-content">
+                        <a href="category1.html" data-text = "decoration"></a>
+                        <a href="category1.html" data-text = "horecaCandles"></a>
+                        <a href="category1.html" data-text = "gifts"></a>
+                        <a href="category1.html" data-text = "presents"></a>
+                     </div>
+                   </button>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="contact.html" data-text = "contact"></a>
+               </li>
+               <li class = "nav-item">
+                  <button id = "enLangButton" class = "lang-button " onclick = "setLanguage('en')">EN</button>
+               </li>
+               <li class = "nav-item ">
+                  <button id = "elLangButton" class = "lang-button" onclick = "setLanguage('el')">EL</button>
+               </li>
+               <!--
+               <li class = "nav-item flags-container">
+                     <button><img src = "images/greekFlag.png"></button>
+                     <button><img src = "images/britishFlag.png"></button>
+               </li>
+               -->
+            </ul>
            </div>
-           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"aria-expanded="false" aria-label="Toggle navigation">
-           <span class="navbar-toggler-icon"></span>
-           </button>
-           <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ml-auto">
-                 <li class="nav-item active">
-                    <a class="nav-link" href="main_page.html" data-text = "home"></a>
-                 </li>
-                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-text = "about"></a>
-                 </li>
-                 <li class="nav-item ">
-                     <button aria-haspopup="true" aria-expanded="false" class="dropbtn" >
-                       <div data-text = "services" class = "nav-link"></div>
-                       <div class="dropdown-content">
-                          <a href="category1.html" data-text = "decoration"></a>
-                          <a href="category1.html" data-text = "horecaCandles"></a>
-                          <a href="category1.html" data-text = "gifts"></a>
-                          <a href="category1.html" data-text = "presents"></a>
-                       </div>
-                     </button>
-                 </li>
-                 <li class="nav-item">
-                    <a class="nav-link" href="contact.html" data-text = "contact"></a>
-                 </li>
-                 <li class = "nav-item">
-                    <button id = "enLangButton" class = "lang-button " onclick = "setLanguage('en')">EN</button>
-                 </li>
-                 <li class = "nav-item ">
-                    <button id = "elLangButton" class = "lang-button" onclick = "setLanguage('el')">EL</button>
-                 </li>
-              </ul>
+         </nav>
+         </div>
+         <div class = "main-info-container">
+            <span>6972150045</span>
+            <span>thanprim@gmail.com</span>
+            <span class="fa fa-instagram" aria-hidden="true"></span>
+            <span class="fa fa-map-marker-alt" aria-hidden="true"></span>
+         </div>
+       </div>
+     </div>
+     <!--
+    
             </div>
-        </nav>
+      <div class = "main-info-container">
+         <span>6972150045</span>
+         <span>thanprim@gmail.com</span>
+         <span class="fa fa-instagram" aria-hidden="true"></span>
+         <span class="fa fa-map-marker-alt" aria-hidden="true"></span>
       </div>
     </div>
+   -->
 
    <h1 class = "category-header-text">PRODUCTS CATEGORY 1</h1>
 
@@ -97,52 +122,6 @@
          tedo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia 
       </p>
    </section>
-   <!--
-    <div class = "image-products-container">
-        <div data-index = "1" class = "product-container" id = "Product1">
-            <img src="images/img-5.png" alt="Image 1" >
-            <span>Details</span>
-            <p class = "hidden-product-description"> 
-                tedo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1edo mpainei h perigrafh gia to product 1p
-            </p>
-        </div>
-        <div data-index = "2" class = "product-container" id = "Product2">
-            <img src="images/img-5.png" alt="Image 2" >
-            <span>Details</span>
-            <p class = "hidden-product-description"> 
-                edo mpainei h perigrafh gia to product 2
-            </p>
-        </div>
-        <div data-index = "3" class = "product-container" id = "Product3">
-            <img src="images/img-5.png" alt="Image 3" >
-            <span>Details</span>
-            <p class = "hidden-product-description"> 
-                edo mpainei h perigrafh gia to product 3
-            </p>
-        </div>
-        <div data-index = "4" class = "product-container" id = "Product4">
-            <img src="images/img-5.png" alt="Image 4" >
-            <span>Details</span>
-            <p class = "hidden-product-description"> 
-                edo mpainei h perigrafh gia to product 4
-            </p>
-        </div>
-        <div data-index = "5" class = "product-container" id = "Product5">
-            <img src="images/img-5.png" alt="Image 5" >
-            <span>Details</span>
-            <p class = "hidden-product-description"> 
-                edo mpainei h perigrafh gia to product 5
-            </p>
-        </div>
-        <div data-index = "6" class = "product-container" id = "Product6">
-            <img src="images/img-5.png" alt="Image 6" >
-            <span>Details</span>
-            <p class = "hidden-product-description"> 
-                edo mpainei h perigrafh gia to product 6
-            </p>
-        </div> 
-    </div>
-    -->
     <!--When a product is clicked-->
     <img src="" alt="" id = "productModal" class = "image-details-show">
     
@@ -150,7 +129,7 @@
       <button class="prevArrowFocused" onclick="arrowPressed(-1)">&#10094;</button>
       <button class="nextArrowFocused" onclick="arrowPressed(1)">&#10095;</button>
       <span  class="close-button" onclick="closeModal()">&times;</span>
-      <div class = "blur-overlay"></div>
+      <div onclick = "closeModal()" class = "blur-overlay"></div>
     </div>
     
     <div class="footer-section">
