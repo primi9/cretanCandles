@@ -224,8 +224,8 @@ button {
 
 .hidden-home {
     display:none;
-    font-size: 0.7rem;
-    padding:0.4rem;
+    font-size: 0.8rem;
+    padding:0.5rem;
     letter-spacing: 0.1rem;
     color:white;
     left:1%;
@@ -237,8 +237,8 @@ button {
 }
 
 .main-info {
-    font-size: 0.7rem;
-    padding:0.4rem;
+    font-size: 0.8rem;
+    padding:0.5rem;
     letter-spacing: 0.1rem;
     color:white;
 }
