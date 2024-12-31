@@ -1,0 +1,146 @@
+
+
+.contact-intro-text {
+    display:flex;
+    flex-direction: column;
+    flex-wrap:wrap;
+    width:80dvw;
+    height:auto;
+    margin:20px auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-intro-text h1 {
+    color:#042789;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+.contact-intro-text p{
+    word-wrap: break-word;
+    width:100%;
+    
+    text-align: center;
+}
+
+.map-responsive {
+    padding:0.5rem;
+    width:80dvw;
+    height:70dvh;
+    margin: 0 auto;
+}
+
+.map-responsive iframe {
+    width: 100%;
+    height:100%;
+}
+
+.contact_section_2 {
+    width:80dvw;
+    padding:0.5rem;
+    margin:0 auto;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;    
+}
+
+.contact-info-section {
+    width:30%;
+    display:flex;
+    padding: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.send-us-text {
+    font-size: 1.2rem;
+    margin:0;
+    padding: 0.2rem;
+    text-align: center;
+}
+
+.social-text {
+   
+    font-size:1.2rem;
+    text-align: center;
+    padding: 0.2rem;
+    margin:0;
+}
+
+.social-bt {
+    font-size: 1.8rem;
+    color:#042789;
+    padding:0.5rem;
+    width: fit-content;
+    height: fit-content;
+}
+
+.social-bt:hover {
+    color:#EF9A08;
+}
+
+.mail-section {
+    width:70%;
+    padding:0.5rem;
+    display: flex;
+    flex-direction: column; 
+}
+
+.form-row {
+    width:100%;
+    display:flex;
+    margin:0;
+}
+
+.form-group {
+    flex-basis:100%;
+    padding:0.2rem;
+    margin:0;
+}
+
+.email-name-bt {
+    color: #080707;
+    width:100%;
+    font-size: 1rem;/*20px*/
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+}
+
+.message-bt {
+    color: #080707;
+    width:100%;
+    font-size: 1rem;/*20px*/
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+}
+
+.send_btn {
+    width: fit-content;
+    margin: 0 auto;
+    
+    padding: 0.5rem 1rem;
+    border-radius: 2.5rem;
+    background-color: #042789;
+    color: #ffffff;
+}
+
+.send_btn:hover {
+    color: #323131;
+    background-color:#EF9A08;
+}
+
+@media (max-width:600px) {
+
+    .contact_section_2 , .map-responsive {
+        width:90dvw;
+    }
+
+    .mail-section , .contact-info-section {
+        width:100%;
+    }
+    .contact-info-section {
+        justify-content: center;
+    }
+
+}

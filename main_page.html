@@ -4,38 +4,44 @@
       <!-- basic -->
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       <!-- mobile metas -->
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
       <!-- site metas -->
-      <title>CretanCandles</title>
+      <title>Services</title>
       <link rel="icon" href="images/greekFlag.png" type="image/x-icon">
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
       <!-- bootstrap css -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
       <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- style css -->
+      <link rel="stylesheet" href="css/responsive.css">
+      <link rel="stylesheet" href="css/commonStyles.css">
+      <link rel="stylesheet" type="text/css" href="css/main_page.css">
+
+
    </head>
    <body>
     <!--header section start -->
-    <div class="header_section">
+    <div class="header_section" id = "headerSection">
       <div class = "header-container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-xxl navbar-light bg-light">
          <div class = "logo-container ">
             <a href="main_page.html" class = "logo"><img src="images/cclogo_changed_transparent.png"></a>
          </div>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
          </button>
-         <div class="collapse navbar-collapse" id="navbarNav">
+         <div class="collapse navbar-collapse " id="navbarNav">
             <ul class="navbar-nav ml-auto">
                <li class="nav-item active">
                   <a class="nav-link" href="main_page.html" data-text = "home"></a>
@@ -63,17 +69,18 @@
                <li class = "nav-item ">
                   <button id = "elLangButton" class = "lang-button" onclick = "setLanguage('el')">EL</button>
                </li>
-               <!--
-               <li class = "nav-item flags-container">
-                     <button><img src = "images/greekFlag.png"></button>
-                     <button><img src = "images/britishFlag.png"></button>
-               </li>
-               -->
             </ul>
            </div>
          </nav>
          </div>
-     </div>
+       </div>
+       <div class = "main-info-container" id = "mainInfo">
+         <a href = "main_page.html" class = "hidden-home" id = "hh">Home</a>
+         <span class = "main-info">+30 6908707557</span>
+         <span class = "main-info">contact@cretanCandles.com</span>
+         <a href = "https://www.instagram.com/cretancandles/" class="main-info fa fa-instagram" aria-hidden="true"></a>
+         <a href = "contact.html" class="main-info fa fa-map-marker-alt" aria-hidden="true"></a>
+      </div>
     
      <div class = "services-text">
       <h1>Services</h1>
@@ -191,5 +198,7 @@
       <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
       <script src="js/custom.js"></script>
       <script src ="js/lang.js"></script>
+    <script src = "js/mainInfo.js"></script>
+
       
 </html>
