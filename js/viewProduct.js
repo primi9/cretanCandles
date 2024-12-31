@@ -1,3 +1,4 @@
+//sticky main info
 function touchStart(event){
     console.log("touch start");
     startX = event.touches[0].clientX;
@@ -84,6 +85,8 @@ function displayFocusedImage(imgIndex) {
 
 function focusProduct(){
 
+    mainInfo.style.display = "none";
+
     focusedMode = true;
 
     if (focusedIndex != -1){
@@ -109,7 +112,7 @@ function closeModal() {
     
     modal.style.display = "none";
     document.body.style.overflowY = "auto";
-    
+    mainInfo.style.display = "flex";
     focusedMode = false;
 }
 
@@ -204,6 +207,24 @@ const ArrowRight = document.getElementById("rightArrow");
 const imagesSlide = document.querySelectorAll(".slideImage");
 const imageList = ["images/eikona91.jpg" , "images/eikona92.jpg" , "images/eikona93.jpg" , "images/eikona94.jpg" , "images/eikona91.jpg","images/eikona91.jpg","images/eikona91.jpg"];
 const modal = document.getElementById('productModal');
+const mainInfo = document.getElementById("mainInfo");
+const hh = document.getElementById("hh");
+
+window.addEventListener('scroll', function() {
+
+    const infoTopPos = mainInfo.getBoundingClientRect().top;
+    if (infoTopPos <= 0){
+        mainInfo.children[0].style.display = "block";
+        mainInfo.style.justifyContent = "flex-end";
+
+    }
+    else {
+        mainInfo.style.justifyContent = "center";
+        mainInfo.children[0].style.display = "none";
+
+    }
+
+});
 
 let startX = 0;
 let minSlideX = 60;
