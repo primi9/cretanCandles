@@ -226,7 +226,7 @@ button {
     display:none;
     font-size: 0.8rem;
     padding:0.5rem;
-    letter-spacing: 0.1rem;
+
     color:white;
     left:1%;
     position: absolute;
@@ -239,7 +239,6 @@ button {
 .main-info {
     font-size: 0.8rem;
     padding:0.5rem;
-    letter-spacing: 0.1rem;
     color:white;
 }
 
