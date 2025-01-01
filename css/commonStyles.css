@@ -239,14 +239,13 @@ button {
 
 .main-info {
     font-size: 1.2rem;
-    padding:0.4rem;
+    padding:0.5rem;
     color:white;
 }
 
 .main-info:hover {
     color:orange;
 }
-
 
 .bg-light {
     background-color: transparent !important;

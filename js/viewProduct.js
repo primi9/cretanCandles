@@ -17,7 +17,6 @@ function touchEnd(event) {
         arrowPressed(1);
 }
 
-
 function keyPressHandler(event) {
 
     if(!focusedMode)
@@ -200,11 +199,34 @@ function rightArrowPressed(){
         ArrowRight.disabled = true;
 }
 
+function touchStartSlider(event){
+
+    slideContainertouchS = event.touches[0].clientX;
+}
+
+function touchStartSlider(event){
+
+    slideContainertouchS = event.touches[0].clientX;
+}
+
+function touchEndSlider(event) {
+
+    console.log("touch end");
+    const endX = event.changedTouches[0].clientX;
+
+    if ((endX - slideContainertouchS) > slideContainermove && slideStartIndex != 0)
+        leftArrowPressed();
+    else if ((endX - slideContainertouchS < - slideContainermove) && slideStartIndex != imageList.length - imagesSlide.length)
+        rightArrowPressed();
+}
+
 const productsContainer = document.getElementById("productsContainer");
 const focusedImage = document.getElementById("focusedImage");
 const ArrowLeft = document.getElementById("leftArrow");
 const ArrowRight = document.getElementById("rightArrow");
 const imagesSlide = document.querySelectorAll(".slideImage");
+const slideImageContainer = document.getElementById("imagesSlide");
+
 const imageList = ["images/eikona91.jpg" , "images/eikona92.jpg" , "images/eikona93.jpg" , "images/eikona94.jpg" , "images/eikona91.jpg","images/eikona91.jpg","images/eikona91.jpg"];
 const modal = document.getElementById('productModal');
 
@@ -215,10 +237,16 @@ let focusedMode = false;
 let focusedIndex;
 let foregroundImageIndex;
 let slideStartIndex;
+let slideContainertouchS = 0;
+let slideContainertouchE = 0;
+const slideContainermove = 60;
 
 document.addEventListener('keydown', keyPressHandler);
 modal.addEventListener('touchstart',touchStart);
 modal.addEventListener('touchend', touchEnd);
+
+slideImageContainer.addEventListener('touchstart',touchStartSlider);
+slideImageContainer.addEventListener('touchend', touchEndSlider);
 
 //set a listener
 imagesSlide.forEach((img, index) => {
