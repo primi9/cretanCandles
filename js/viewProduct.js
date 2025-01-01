@@ -209,10 +209,33 @@ function touchStartSlider(event){
     slideContainertouchS = event.touches[0].clientX;
 }
 
+function touchMoveSlider(event){
+
+    if (movedSlider)
+        return;
+
+    const moveTouch = event.touches[0].clientX;
+
+    if ((moveTouch - slideContainertouchS > slideContainermove / 2) && slideStartIndex != 0){
+        movedSlider = true;
+        for(let i = 0; i < imagesSlide.length; i++)
+            imagesSlide[i].style.transform = "translate(0.5rem)";
+    }
+    else if (moveTouch - slideContainertouchS < (-slideContainermove / 2) && slideStartIndex != imageList.length - imagesSlide.length){
+        movedSlider = true;
+        for(let i = 0; i < imagesSlide.length; i++)
+            imagesSlide[i].style.transform = "translate(-0.5rem)";
+    }
+}
+
 function touchEndSlider(event) {
 
     console.log("touch end");
+    movedSlider = false;
+    
     const endX = event.changedTouches[0].clientX;
+    for(let i = 0; i < imagesSlide.length; i++)
+        imagesSlide[i].style.transform = "translate(0)";
 
     if ((endX - slideContainertouchS) > slideContainermove && slideStartIndex != 0)
         leftArrowPressed();
@@ -240,12 +263,16 @@ let slideStartIndex;
 let slideContainertouchS = 0;
 let slideContainertouchE = 0;
 const slideContainermove = 60;
+let movedSlider = false;
 
 document.addEventListener('keydown', keyPressHandler);
 modal.addEventListener('touchstart',touchStart);
 modal.addEventListener('touchend', touchEnd);
 
 slideImageContainer.addEventListener('touchstart',touchStartSlider);
+
+slideImageContainer.addEventListener('touchmove',touchMoveSlider);
+
 slideImageContainer.addEventListener('touchend', touchEndSlider);
 
 //set a listener
