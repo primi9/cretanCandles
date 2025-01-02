@@ -88,16 +88,22 @@
    <section class = "category-detailed-section">
       <div id = "productsContainer" class = "products-container">
          <div class = "products-focused-image">
-            <img id = "focusedImage" src = "" alt = "mpla" onclick = "focusProduct()">
+            <img id = "focusedImage" src = "images/eikona91.jpg" alt = "mpla" onclick = "focusProduct()">
          </div>
 
          <div id = "imagesSlide" class = "images-slideshow">
             <button id = "leftArrow" class = "arrow" onclick="leftArrowPressed()">&#10094;</button>
-            <div class = "imageSlideContainer"><img data-index = "1" class = "slideImage" src = ></div>
-            <div class = "imageSlideContainer"><img data-index = "2" class = "slideImage" src = ></div>
-            <div class = "imageSlideContainer"><img data-index = "3" class = "slideImage" src = ></div>
-            <div class = "imageSlideContainer"><img data-index = "4" class = "slideImage" src = ></div>
-            <div class = "imageSlideContainer"><img data-index = "5" class = "slideImage" src = ></div>
+            <div id = "slideContainer" class = "imageSlideContainer">
+               <div id = "slideWrapper" class = "imageSlideWrapper">
+              <img  class = "slideImage" src = "images/eikona91.jpg">
+              <img  class = "slideImage" src = "images/eikona92.jpg">
+              <img  class = "slideImage" src = "images/eikona93.jpg">
+              <img  class = "slideImage" src = "images/eikona94.jpg">
+              <img  class = "slideImage" src = "images/eikona91.jpg">
+              <img  class = "slideImage" src = "images/eikona92.jpg">
+              <img  class = "slideImage" src = "images/eikona93.jpg">
+            </div>
+            </div>
             <button id = "rightArrow" class = "arrow" onclick="rightArrowPressed()">&#10095;</button>
 
          </div>

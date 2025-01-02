@@ -114,21 +114,6 @@ function closeModal() {
     focusedMode = false;
 }
 
-function startSlider(){
-    ArrowLeft.disabled = true;
-
-    if (imageList.length - imagesSlide.length <= 0)
-        ArrowRight.disabled = true;
-
-    for(let i = 0; i < imagesSlide.length; i++)
-        imagesSlide[i].src = imageList[i];
-
-    slideStartIndex = 0;
-    focusedIndex = 0;
-    foregroundImageIndex = 0;
-    imagesSlide[0].classList.add("active-slideShow-image");
-    focusedImage.src = imageList[0];
-}
 
 function setFocusedImage(index){
 
@@ -203,10 +188,6 @@ function touchStartSlider(event){
     slideContainertouchS = event.touches[0].clientX;
 }
 
-function touchStartSlider(event){
-
-    slideContainertouchS = event.touches[0].clientX;
-}
 
 function touchMoveSlider(event){
 
@@ -218,14 +199,14 @@ function touchMoveSlider(event){
     if ((moveTouch - slideContainertouchS > slideContainermove / 2) && slideStartIndex != 0){
         movedSlider = true;
         for(let i = 0; i < imagesSlide.length; i++){
-            imagesSlide[i].style.transform = "translate(0.5rem) scale(0.95)";
+            imagesSlide[i].style.transform = "translate(0.7rem) scale(0.95)";
 
         }
     }
     else if (moveTouch - slideContainertouchS < (-slideContainermove / 2) && slideStartIndex != imageList.length - imagesSlide.length){
         movedSlider = true;
         for(let i = 0; i < imagesSlide.length; i++)
-            imagesSlide[i].style.transform = "translate(-0.5rem) scale(0.95)";
+            imagesSlide[i].style.transform = "translate(-0.7rem) scale(0.95)";
     }
 }
 
@@ -244,12 +225,60 @@ function touchEndSlider(event) {
         rightArrowPressed();
 }
 
+let startTouch = 0;
+let currentSliderPos = 0;
+let imageSlideWidth = 0;
+let maxWidth = 0;
+
+function touchStartSlide(event) {
+    
+    imageSlideWidth = imagesSlide[0].clientWidth;
+    maxWidth = imageSlideWidth * nImages;
+    startTouch = event.touches[0].clientX;
+}
+
+function touchMoveSlide(event) {
+
+    const moveTouch = event.touches[0].clientX;
+    const moveOffset = moveTouch - startTouch;
+
+    if (currentSliderPos + moveOffset >= 0 || currentSliderPos + moveOffset <= -10000)// change later
+        return;
+
+    slideWrapper.style.transform = `translateX(${currentSliderPos + moveOffset}px)`;
+}
+function touchEndSlide(event) {
+
+    currentSliderPos += event.changedTouches[0].clientX - startTouch;
+
+    if (currentSliderPos > 0){
+        currentSliderPos = 0;
+        return;
+    }
+
+    else if (currentSliderPos < -10000)
+        currentSliderPos = -10000;
+    
+    const remainingWidth = (-currentSliderPos) % imageSlideWidth;
+    if (remainingWidth < imageSlideWidth / 2)
+        slideWrapper.style.transform = `translateX(${currentSliderPos + remainingWidth}px)`;
+    else
+        slideWrapper.style.transform = `translateX(${currentSliderPos - imageSlideWidth + remainingWidth}px)`;
+        
+    
+
+
+
+}
+
 const productsContainer = document.getElementById("productsContainer");
 const focusedImage = document.getElementById("focusedImage");
 const ArrowLeft = document.getElementById("leftArrow");
 const ArrowRight = document.getElementById("rightArrow");
 const imagesSlide = document.querySelectorAll(".slideImage");
 const slideImageContainer = document.getElementById("imagesSlide");
+const slideWrapper = document.getElementById("slideWrapper");
+const nImages = imagesSlide.length;
 
 const imageList = ["images/eikona91.jpg" , "images/eikona92.jpg" , "images/eikona93.jpg" , "images/eikona94.jpg" , "images/eikona91.jpg","images/eikona91.jpg","images/eikona91.jpg"];
 const modal = document.getElementById('productModal');
@@ -270,11 +299,13 @@ document.addEventListener('keydown', keyPressHandler);
 modal.addEventListener('touchstart',touchStart);
 modal.addEventListener('touchend', touchEnd);
 
-slideImageContainer.addEventListener('touchstart',touchStartSlider);
+//slideImageContainer.addEventListener('touchstart',touchStartSlider);
+//slideImageContainer.addEventListener('touchmove',touchMoveSlider);
+//slideImageContainer.addEventListener('touchend', touchEndSlider);
 
-slideImageContainer.addEventListener('touchmove',touchMoveSlider);
-
-slideImageContainer.addEventListener('touchend', touchEndSlider);
+slideWrapper.addEventListener('touchstart' , touchStartSlide);
+slideWrapper.addEventListener('touchmove' , touchMoveSlide);
+slideWrapper.addEventListener('touchend' , touchEndSlide);
 
 //set a listener
 imagesSlide.forEach((img, index) => {
@@ -282,5 +313,3 @@ imagesSlide.forEach((img, index) => {
         setFocusedImage(index);
     });
 });
-
-startSlider();

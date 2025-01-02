@@ -130,13 +130,19 @@
 }
 
 .imageSlideContainer {
-    width:16%;
-    padding: 0.2rem;
+    width:80%;
+    overflow:hidden;
 }
 
-.imageSlideContainer img {
+.imageSlideWrapper {
     width:100%;
+    display:flex;
+}
+
+.slideImage {
+    width:20%;
     object-fit: cover;
+    padding:0.2rem;
     cursor:pointer;
 }
 
