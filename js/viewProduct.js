@@ -1,4 +1,3 @@
-//sticky main info
 function touchStart(event){
     console.log("touch start");
     startX = event.touches[0].clientX;
@@ -218,13 +217,15 @@ function touchMoveSlider(event){
 
     if ((moveTouch - slideContainertouchS > slideContainermove / 2) && slideStartIndex != 0){
         movedSlider = true;
-        for(let i = 0; i < imagesSlide.length; i++)
-            imagesSlide[i].style.transform = "translate(0.5rem)";
+        for(let i = 0; i < imagesSlide.length; i++){
+            imagesSlide[i].style.transform = "translate(0.5rem) scale(0.95)";
+
+        }
     }
     else if (moveTouch - slideContainertouchS < (-slideContainermove / 2) && slideStartIndex != imageList.length - imagesSlide.length){
         movedSlider = true;
         for(let i = 0; i < imagesSlide.length; i++)
-            imagesSlide[i].style.transform = "translate(-0.5rem)";
+            imagesSlide[i].style.transform = "translate(-0.5rem) scale(0.95)";
     }
 }
 
@@ -235,7 +236,7 @@ function touchEndSlider(event) {
     
     const endX = event.changedTouches[0].clientX;
     for(let i = 0; i < imagesSlide.length; i++)
-        imagesSlide[i].style.transform = "translate(0)";
+        imagesSlide[i].style.transform = "translate(0) scale(1)";
 
     if ((endX - slideContainertouchS) > slideContainermove && slideStartIndex != 0)
         leftArrowPressed();
