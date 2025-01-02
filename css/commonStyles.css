@@ -385,6 +385,7 @@ button {
     padding:1rem;
     display:flex;
     flex-direction: row;
+    flex-wrap: wrap-reverse;
     background-color: #27418a;
     height: auto;
     flex-wrap: wrap;
@@ -396,13 +397,14 @@ button {
     flex-direction: column;
     margin-left:auto;
     height:100%;
-    padding:2rem;
+    padding:1rem;
+    
 }
 
 .footer-section li {
-    font-size: 1rem;/*14px*/
+    font-size: 1.5rem;/*14px*/
     color: #ffffff;
-    padding: 0px 0px 0.5rem 0.5rem;
+    padding: 0.5rem;
 }
 
 .footer-section li a {
@@ -425,7 +427,18 @@ button {
     flex-direction: column;
     justify-content: flex-start;
     height:100%;
-    padding:2rem;
+    padding:1rem;
+}
+
+@media(max-width:800px){
+    .footer_menu , .location_text{
+        width:100%;
+    }
+
+    .location_text {
+        padding-bottom: 2rem;
+
+    }
 }
 
 .padding_left {
