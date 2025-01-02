@@ -102,43 +102,61 @@
 
 .carousel-container {
     display:flex;
-    width:90%;
-    height:auto;
-    margin:5px auto;
+    width:100vw;
+    max-height:70vh;
 }
 
 .carousel-inner {
     overflow:hidden;
-    height:100%;
+    width:100%;
 }
 
 .carousel-container img {
     width:100%;
-    height:auto;
+    aspect-ratio: 1.5;
     object-fit: cover;
     overflow: hidden;
-    object-position: center top;
+    object-position: center;
 }
 
 .carousel-indicators > .indicator-styling {
     cursor:pointer;
 }
 
-.text-paragraph {
+.choose-us {
     display:flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width:70%;
-    height:auto;
-    margin:1% auto;
-    padding:2% 0px;
+    justify-content: space-between;
+    width:90vw;
+    margin:1rem auto 0 auto;
+    padding:1rem;
     background-color: rgb(244, 247, 248);
+}
+
+@media (max-width:800px){
+    .choose-us {
+        flex-direction: column;
+    }
+    .choose-us div {
+        padding-bottom: 1rem;
+    }
+}
+
+.choose-us span {
+    text-align: center;
+    padding:0.4rem;
+    color:#042789;
+    font-size: 1.5rem;
+}
+
+.choose-us img {
+    width:2rem;
+    height: 2rem;
+    object-fit: contain;
 }
 
 .text-paragraph p {
     width:100%;
-    text-align: center;
     word-wrap:break-word;
     text-wrap: wrap;
 }
