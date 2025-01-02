@@ -404,8 +404,12 @@ button {
     padding: 0px 0px 0.5rem 0.5rem;
 }
 
+.footer-section li a {
+    color:white;
+}
+
 .footer-section li a:hover {
-    color:#042789;
+    color:orange;
 }
 
 .useful_text {
