@@ -114,115 +114,53 @@ function closeModal() {
     focusedMode = false;
 }
 
-
 function setFocusedImage(index){
+    
+    imagesSlide[prevFocusedIndex].classList.remove("active-slideShow-image");
+    imagesSlide[index].classList.add("active-slideShow-image");
+    focusedImage.src = imagesSlide[index].src;
+    prevFocusedIndex = index;
+}
 
-    if (focusedIndex != -1)
-        imagesSlide[focusedIndex].classList.remove("active-slideShow-image");
+function applySmoothTransform() {
 
-    focusedIndex = index;
-    foregroundImageIndex = slideStartIndex + index;
+    return new Promise((resolve) => {
+        
+        slideWrapper.style.transition = 'transform 3s ease-in-out';
+        slideWrapper.style.transform = `translateX(${currentSliderPos}px)`;
 
-    imagesSlide[focusedIndex].classList.add("active-slideShow-image");
-    focusedImage.src = imageList[foregroundImageIndex];
+        slideWrapper.addEventListener("transitionend", () => {
+            slideWrapper.style.transition = "";
+            resolve();
+        },{once:true});
+    });
 }
 
 function leftArrowPressed(){
 
-    slideStartIndex -= 1;
-
-    for(let i = 0; i < imagesSlide.length; i++)
-        imagesSlide[i].src = imageList[slideStartIndex + i];
-
-    if(focusedIndex == imagesSlide.length - 1){
-        imagesSlide[focusedIndex].classList.remove("active-slideShow-image");
-        focusedIndex = -1;
-    }
-    else if(focusedIndex != -1){
-        imagesSlide[focusedIndex].classList.remove("active-slideShow-image");
-        imagesSlide[focusedIndex + 1].classList.add("active-slideShow-image");
-        focusedIndex += 1;
-    }
-    else if (focusedIndex == -1){
-        if (foregroundImageIndex == slideStartIndex){
-            focusedIndex = 0;
-            imagesSlide[0].classList.add("active-slideShow-image");
-        }
-    }
-    
     ArrowRight.disabled = false;
-    if(slideStartIndex == 0)
+
+    const imageSlideWidth = imagesSlide[0].getBoundingClientRect().width;
+    currentSliderPos += imageSlideWidth;
+
+    if(currentSliderPos == 0)
         ArrowLeft.disabled = true;
+
+    slideWrapper.style.transform = `translateX(${currentSliderPos}px)`;
+
 }
 
 function rightArrowPressed(){
 
-    slideStartIndex += 1;
-
-    for(let i = 0; i < imagesSlide.length; i++)
-        imagesSlide[i].src = imageList[slideStartIndex + i];
-
-    if(focusedIndex == 0){
-        imagesSlide[0].classList.remove("active-slideShow-image");
-        focusedIndex = -1;
-    }
-    else if(focusedIndex != -1){
-        imagesSlide[focusedIndex].classList.remove("active-slideShow-image");
-        imagesSlide[focusedIndex - 1].classList.add("active-slideShow-image");
-        focusedIndex -= 1;
-    }
-    else if (focusedIndex == -1){
-        if (foregroundImageIndex == slideStartIndex + imagesSlide.length - 1){
-            focusedIndex = imagesSlide.length - 1;
-            imagesSlide[focusedIndex].classList.add("active-slideShow-image");
-        }
-    }
-    
     ArrowLeft.disabled = false;
-    if(slideStartIndex == imageList.length - imagesSlide.length)
+    imageSlideWidth = imagesSlide[0].getBoundingClientRect().width;
+    currentSliderPos -= imageSlideWidth;
+
+    if(currentSliderPos == -rightLimit * imageSlideWidth)
         ArrowRight.disabled = true;
-}
 
-function touchStartSlider(event){
+    slideWrapper.style.transform = `translateX(${currentSliderPos}px)`;
 
-    slideContainertouchS = event.touches[0].clientX;
-}
-
-
-function touchMoveSlider(event){
-
-    if (movedSlider)
-        return;
-
-    const moveTouch = event.touches[0].clientX;
-
-    if ((moveTouch - slideContainertouchS > slideContainermove / 2) && slideStartIndex != 0){
-        movedSlider = true;
-        for(let i = 0; i < imagesSlide.length; i++){
-            imagesSlide[i].style.transform = "translate(0.7rem) scale(0.95)";
-
-        }
-    }
-    else if (moveTouch - slideContainertouchS < (-slideContainermove / 2) && slideStartIndex != imageList.length - imagesSlide.length){
-        movedSlider = true;
-        for(let i = 0; i < imagesSlide.length; i++)
-            imagesSlide[i].style.transform = "translate(-0.7rem) scale(0.95)";
-    }
-}
-
-function touchEndSlider(event) {
-
-    console.log("touch end");
-    movedSlider = false;
-    
-    const endX = event.changedTouches[0].clientX;
-    for(let i = 0; i < imagesSlide.length; i++)
-        imagesSlide[i].style.transform = "translate(0) scale(1)";
-
-    if ((endX - slideContainertouchS) > slideContainermove && slideStartIndex != 0)
-        leftArrowPressed();
-    else if ((endX - slideContainertouchS < - slideContainermove) && slideStartIndex != imageList.length - imagesSlide.length)
-        rightArrowPressed();
 }
 
 let startTouch = 0;
@@ -231,8 +169,8 @@ let imageSlideWidth = 0;
 let maxWidth = 0;
 
 function touchStartSlide(event) {
-    
-    imageSlideWidth = imagesSlide[0].clientWidth;
+    console.log("start");
+    imageSlideWidth = imagesSlide[0].getBoundingClientRect().width;
     maxWidth = imageSlideWidth * nImages;
     startTouch = event.touches[0].clientX;
 }
@@ -242,32 +180,41 @@ function touchMoveSlide(event) {
     const moveTouch = event.touches[0].clientX;
     const moveOffset = moveTouch - startTouch;
 
-    if (currentSliderPos + moveOffset >= 0 || currentSliderPos + moveOffset <= -10000)// change later
+    if (currentSliderPos + moveOffset >= 0 || currentSliderPos + moveOffset <= - rightLimit * imageSlideWidth)
         return;
 
     slideWrapper.style.transform = `translateX(${currentSliderPos + moveOffset}px)`;
 }
+
 function touchEndSlide(event) {
 
+    imageSlideWidth = imagesSlide[0].getBoundingClientRect().width;
     currentSliderPos += event.changedTouches[0].clientX - startTouch;
 
-    if (currentSliderPos > 0){
+    if (currentSliderPos > 0)
         currentSliderPos = 0;
-        return;
+    else if (currentSliderPos < -rightLimit * imageSlideWidth)
+        currentSliderPos = -rightLimit * imageSlideWidth;
+    else{
+        const remainingWidth = (-currentSliderPos) % imageSlideWidth;
+
+        if (remainingWidth > imageSlideWidth / 2)
+            currentSliderPos -= imageSlideWidth - remainingWidth;
+        else
+            currentSliderPos += remainingWidth;
     }
 
-    else if (currentSliderPos < -10000)
-        currentSliderPos = -10000;
-    
-    const remainingWidth = (-currentSliderPos) % imageSlideWidth;
-    if (remainingWidth < imageSlideWidth / 2)
-        slideWrapper.style.transform = `translateX(${currentSliderPos + remainingWidth}px)`;
+    if (currentSliderPos == 0)
+        ArrowLeft.disabled = true;
     else
-        slideWrapper.style.transform = `translateX(${currentSliderPos - imageSlideWidth + remainingWidth}px)`;
-        
-    
+        ArrowLeft.disabled = false;
 
+    if (currentSliderPos == -rightLimit * imageSlideWidth)
+        ArrowRight.disabled = true;
+    else
+        ArrowRight.disabled = false;
 
+    slideWrapper.style.transform = `translateX(${currentSliderPos}px)`;
 
 }
 
@@ -276,32 +223,23 @@ const focusedImage = document.getElementById("focusedImage");
 const ArrowLeft = document.getElementById("leftArrow");
 const ArrowRight = document.getElementById("rightArrow");
 const imagesSlide = document.querySelectorAll(".slideImage");
-const slideImageContainer = document.getElementById("imagesSlide");
 const slideWrapper = document.getElementById("slideWrapper");
 const nImages = imagesSlide.length;
-
-const imageList = ["images/eikona91.jpg" , "images/eikona92.jpg" , "images/eikona93.jpg" , "images/eikona94.jpg" , "images/eikona91.jpg","images/eikona91.jpg","images/eikona91.jpg"];
+const nImagesShown = 5;
+const rightLimit = nImages - nImagesShown;
 const modal = document.getElementById('productModal');
 
 let startX = 0;
 let minSlideX = 60;
 let processing = false;
+let prevFocusedIndex = 0;
 let focusedMode = false;
-let focusedIndex;
-let foregroundImageIndex;
-let slideStartIndex;
-let slideContainertouchS = 0;
-let slideContainertouchE = 0;
+
 const slideContainermove = 60;
-let movedSlider = false;
 
 document.addEventListener('keydown', keyPressHandler);
 modal.addEventListener('touchstart',touchStart);
 modal.addEventListener('touchend', touchEnd);
-
-//slideImageContainer.addEventListener('touchstart',touchStartSlider);
-//slideImageContainer.addEventListener('touchmove',touchMoveSlider);
-//slideImageContainer.addEventListener('touchend', touchEndSlider);
 
 slideWrapper.addEventListener('touchstart' , touchStartSlide);
 slideWrapper.addEventListener('touchmove' , touchMoveSlide);
@@ -313,3 +251,6 @@ imagesSlide.forEach((img, index) => {
         setFocusedImage(index);
     });
 });
+
+imagesSlide[0].classList.add("active-slideShow-image");
+ArrowLeft.disabled = true;
