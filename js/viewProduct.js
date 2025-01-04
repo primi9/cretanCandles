@@ -57,42 +57,36 @@ async function arrowPressed(n){
 
     processing = true;
 
-    if (n == 1) {//if pressed next arrow
-        if (foregroundImageIndex == imageList.length - 1)
-            foregroundImageIndex = 0;
+    if (n == 1) {
+        if (prevFocusedIndex == nImages - 1)
+            prevFocusedIndex = 0;
         else 
-        foregroundImageIndex += 1;
+            prevFocusedIndex += 1;
     }
     else {
-        if (foregroundImageIndex == 0)
-            foregroundImageIndex = imageList.length - 1;
+        if (prevFocusedIndex == 0)
+            prevFocusedIndex = nImages - 1;
         else 
-            foregroundImageIndex -= 1;
+            prevFocusedIndex -= 1;
     }
 
     await waitOpacityChange("0");
-    displayFocusedImage(foregroundImageIndex);
+    displayFocusedImage(imagesSlide[prevFocusedIndex].src);
     await waitOpacityChange("1");
 
     processing = false;
 }
 
-function displayFocusedImage(imgIndex) {
-    modal.src = imageList[imgIndex];
+function displayFocusedImage(src) {
+    modal.src = src;
 }
 
 function focusProduct(){
 
-    mainInfo.style.display = "none";
-
     focusedMode = true;
 
-    if (focusedIndex != -1){
-        imagesSlide[focusedIndex].classList.remove("active-slideShow-image");
-        focusedIndex = -1;
-    }
-
-    displayFocusedImage(foregroundImageIndex);
+    imagesSlide[prevFocusedIndex].classList.remove("active-slideShow-image");
+    displayFocusedImage(focusedImage.src);
 
     handleButtons.style.display = "block"; // display the handlers
     modal.style.display = "flex"; // display the product in focused mode
@@ -103,14 +97,14 @@ function closeModal() {
 
     console.log("close button clicked");
 
-    if (foregroundImageIndex >= slideStartIndex && foregroundImageIndex < slideStartIndex + imagesSlide.length)
-        setFocusedImage(foregroundImageIndex - slideStartIndex);
-
     handleButtons.style.display = "none";
     
     modal.style.display = "none";
     document.body.style.overflowY = "auto";
-    mainInfo.style.display = "flex";
+
+    imagesSlide[prevFocusedIndex].classList.add("active-slideShow-image");
+    imagesSlide[prevFocusedIndex].classList.add("active-slideShow-image");
+    focusedImage.src = imagesSlide[prevFocusedIndex].src;
     focusedMode = false;
 }
 
@@ -122,55 +116,50 @@ function setFocusedImage(index){
     prevFocusedIndex = index;
 }
 
+/*
 function applySmoothTransform() {
 
-    return new Promise((resolve) => {
-        
-        slideWrapper.style.transition = 'transform 3s ease-in-out';
-        slideWrapper.style.transform = `translateX(${currentSliderPos}px)`;
+    processingTrans = true;
 
-        slideWrapper.addEventListener("transitionend", () => {
-            slideWrapper.style.transition = "";
-            resolve();
-        },{once:true});
-    });
+    slideWrapper.style.transition = "transform 0.3s ease-in-out";
+    slideWrapper.style.transform = `translateX(${currentSliderPos}px)`;
+
+    function transitionEnd(){
+        slideWrapper.style.transition = "";
+        console.log("xaaxxaax");
+        slideWrapper.removeEventListener("transitionend", transitionEnd);
+        processingTrans = false;
+
+    }
+    slideWrapper.addEventListener("transitionend", transitionEnd);
 }
+*/
 
 function leftArrowPressed(){
 
     ArrowRight.disabled = false;
 
-    const imageSlideWidth = imagesSlide[0].getBoundingClientRect().width;
     currentSliderPos += imageSlideWidth;
 
     if(currentSliderPos == 0)
         ArrowLeft.disabled = true;
 
     slideWrapper.style.transform = `translateX(${currentSliderPos}px)`;
-
 }
 
 function rightArrowPressed(){
 
     ArrowLeft.disabled = false;
-    imageSlideWidth = imagesSlide[0].getBoundingClientRect().width;
     currentSliderPos -= imageSlideWidth;
 
     if(currentSliderPos == -rightLimit * imageSlideWidth)
         ArrowRight.disabled = true;
 
     slideWrapper.style.transform = `translateX(${currentSliderPos}px)`;
-
 }
 
-let startTouch = 0;
-let currentSliderPos = 0;
-let imageSlideWidth = 0;
-let maxWidth = 0;
-
 function touchStartSlide(event) {
-    console.log("start");
-    imageSlideWidth = imagesSlide[0].getBoundingClientRect().width;
+
     maxWidth = imageSlideWidth * nImages;
     startTouch = event.touches[0].clientX;
 }
@@ -186,10 +175,7 @@ function touchMoveSlide(event) {
     slideWrapper.style.transform = `translateX(${currentSliderPos + moveOffset}px)`;
 }
 
-function touchEndSlide(event) {
-
-    imageSlideWidth = imagesSlide[0].getBoundingClientRect().width;
-    currentSliderPos += event.changedTouches[0].clientX - startTouch;
+function fixAlignment(){
 
     if (currentSliderPos > 0)
         currentSliderPos = 0;
@@ -215,8 +201,19 @@ function touchEndSlide(event) {
         ArrowRight.disabled = false;
 
     slideWrapper.style.transform = `translateX(${currentSliderPos}px)`;
-
 }
+
+function touchEndSlide(event) {
+
+    currentSliderPos += event.changedTouches[0].clientX - startTouch;
+    fixAlignment();
+}
+
+window.addEventListener("resize", () => {
+
+    imageSlideWidth = imagesSlide[0].getBoundingClientRect().width;
+    fixAlignment();
+});
 
 const productsContainer = document.getElementById("productsContainer");
 const focusedImage = document.getElementById("focusedImage");
@@ -229,13 +226,17 @@ const nImagesShown = 5;
 const rightLimit = nImages - nImagesShown;
 const modal = document.getElementById('productModal');
 
-let startX = 0;
-let minSlideX = 60;
 let processing = false;
 let prevFocusedIndex = 0;
 let focusedMode = false;
 
-const slideContainermove = 60;
+let startTouch = 0;
+let currentSliderPos = 0;
+let imageSlideWidth = imagesSlide[0].getBoundingClientRect().width;
+
+//when product is focused
+let startX = 0;
+const minSlideX = 60;
 
 document.addEventListener('keydown', keyPressHandler);
 modal.addEventListener('touchstart',touchStart);
@@ -245,12 +246,11 @@ slideWrapper.addEventListener('touchstart' , touchStartSlide);
 slideWrapper.addEventListener('touchmove' , touchMoveSlide);
 slideWrapper.addEventListener('touchend' , touchEndSlide);
 
-//set a listener
+imagesSlide[0].classList.add("active-slideShow-image");
+ArrowLeft.disabled = true;
+
 imagesSlide.forEach((img, index) => {
     img.addEventListener('click', () => {
         setFocusedImage(index);
     });
 });
-
-imagesSlide[0].classList.add("active-slideShow-image");
-ArrowLeft.disabled = true;

@@ -65,6 +65,19 @@
     margin-left: auto;
 }
 
+.position-mg {
+    position: absolute;
+    top:2%;
+    right:2%;
+    font-size: 2rem;
+    color:#042789;
+}
+
+.position-mg:hover {
+    cursor:pointer;
+    color:orange;
+}
+
 @media (max-width:600px) {
 
     .category-detailed-section {
@@ -137,6 +150,7 @@
 .imageSlideWrapper {
     width:100%;
     display:flex;
+    
 }
 
 .slideImage {
@@ -144,6 +158,7 @@
     object-fit: cover;
     padding:0.2rem;
     cursor:pointer;
+    flex-shrink: 0;
 }
 
 .active-slideShow-image {
