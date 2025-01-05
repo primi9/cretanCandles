@@ -230,11 +230,6 @@ window.addEventListener("resize", () => {
     fixAlignment();
 });
 
-window.addEventListener("popstate", () => {
-    if(focusedMode)
-        closeModal();
-});
-
 const productsContainer = document.getElementById("productsContainer");
 const focusedImage = document.getElementById("focusedImage");
 const ArrowLeft = document.getElementById("leftArrow");
