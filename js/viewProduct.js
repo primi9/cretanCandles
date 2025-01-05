@@ -93,6 +93,21 @@ function focusProduct(){
     document.body.style.overflowY = "hidden";//make the page un - scrollable when user is checking out the product
 }
 
+function displayFullImg(){
+    /*
+    modal.style.maxHeight = "none";
+    modal.style.maxWidth = "none";
+    modal.style.cursor = "zoom-out";
+    modal.style.objectFit = "none";
+    modal.style.position = "none";
+    modal.style.overflow = "scroll";
+
+    modal.style.transform = "translate(0);"
+    body.style.overflowX = "auto";
+    body.style.overflowY = "auto";
+    */
+}
+
 function closeModal() {
 
     console.log("close button clicked");
