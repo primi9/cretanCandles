@@ -396,6 +396,7 @@ button {
 /*footer section*/
 
 .footer-section {
+    margin-top:1rem;
     width: fit-content;
     min-width: 100vw;
     padding:1rem;

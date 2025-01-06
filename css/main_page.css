@@ -1,15 +1,23 @@
 
+.main-page-intro {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    width:95vw;
+    padding:1rem;
+    background-color: rgb(244, 247, 248);
+    margin:1rem auto;
+    justify-content:space-between
+}
+
 .services-text {
     display:flex;
     flex-direction: column;
-    width:95%;
-    margin:2% auto;
+    width:75%;
     padding:2%;
     align-items: center;
     justify-content: center;
     background-color: rgb(244, 247, 248);
-    border-left: 0.1rem groove #635c5c;
-    border-right: 0.1rem groove #635c5c;
 }
 
 .services-text h1 {
@@ -23,6 +31,24 @@
     text-align: center;
 }
 
+.main-page-video {
+    width:25%;
+    aspect-ratio: var(--categories-image-aspect-ratio);
+    object-fit: cover;
+    border-radius: 2rem;
+    box-shadow: 0px 1rem 2rem rgba(65, 46, 30, 0.2);
+}
+
+@media(max-width:800px){
+    .services-text {
+        width:60%;
+    }
+
+    .main-page-video {
+        width:40%;
+    }
+}
+
 .categories-section {
     display:grid;
     grid-template-columns: repeat(2,1fr);
@@ -33,14 +59,6 @@
     column-gap:2.7dvw;
     row-gap: 2.5dvw;
     padding: 2.7dvw;
-}
-
-@media(max-width:800px) {
-    .categories-section {
-        grid-template-rows: repeat(4,1fr);
-        grid-template-columns: 1fr;
-        row-gap: 6dvw;
-    }
 }
 
 .category-description {
@@ -100,6 +118,15 @@
     margin-bottom:auto;
 }
 
+@media(max-width:800px) {
+
+    .categories-section {
+        grid-template-rows: repeat(4,1fr);
+        grid-template-columns: 1fr;
+        row-gap: 6dvw;
+    }
+}
+
 .carousel-container {
     display:flex;
     width:100vw;
@@ -123,24 +150,7 @@
     cursor:pointer;
 }
 
-.small-outro {
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    width:90vw;
-    padding:1rem;
-    background-color: rgb(244, 247, 248);
-    margin:1rem auto;
-    justify-content:space-between
-}
 
-.small-outro-video {
-    width:25%;
-    aspect-ratio: var(--categories-image-aspect-ratio);
-    object-fit: cover;
-    border-radius: 2rem;
-    box-shadow: 0px 1rem 2rem rgba(65, 46, 30, 0.2);
-}
 
 .choose-us {
     display:flex;
