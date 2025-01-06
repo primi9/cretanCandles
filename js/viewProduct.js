@@ -6,6 +6,9 @@ function touchStart(event){
 
 function touchEnd(event) {
 
+    if(fullImgMode)
+        return;
+
     console.log("touch end");
     const endX = event.changedTouches[0].clientX;
     console.log(endX);
@@ -89,7 +92,7 @@ function focusProduct(){
     displayFocusedImage(focusedImage.src);
 
     handleButtons.style.display = "block"; // display the handlers
-    modal.style.display = "flex"; // display the product in focused mode
+    modalContainer.style.display = "block"; // display the product in focused mode
     document.body.style.overflowY = "hidden";//make the page un - scrollable when user is checking out the product
 }
 
@@ -112,9 +115,12 @@ function closeModal() {
 
     console.log("close button clicked");
 
+    if(fullImgMode)
+        disableFullimg();
+
     handleButtons.style.display = "none";
     
-    modal.style.display = "none";
+    modalContainer.style.display = "none";
     document.body.style.overflowY = "auto";
 
     imagesSlide[prevFocusedIndex].classList.add("active-slideShow-image");
@@ -224,6 +230,45 @@ function touchEndSlide(event) {
     fixAlignment();
 }
 
+function disableFullimg(){
+
+    focusArrows[0].style.display = "block";
+    focusArrows[1].style.display = "block";
+
+    modal.style.maxWidth = "80dvw";
+    modal.style.maxHeight = "95dvh";
+    modal.style.objectFit = "contain";
+    modal.style.borderRadius = "3rem";
+    modalContainer.style.overflow = "hidden";
+
+    zoomButton.classList.remove("fa-search-minus");
+    zoomButton.classList.add("fa-search-plus");
+
+    fullImgMode = false;
+}
+
+function displayFullImg() {
+
+    if(fullImgMode){
+        disableFullimg();
+        return;
+    }
+
+    fullImgMode = true;
+
+    zoomButton.classList.remove("fa-search-plus");
+    zoomButton.classList.add("fa-search-minus");
+
+    focusArrows[0].style.display = "none";
+    focusArrows[1].style.display = "none";
+    modalContainer.style.overflow = "auto";
+
+    modal.style.maxWidth = "none";
+    modal.style.maxHeight = "none";
+    modal.style.objectFit = "fill";
+    modal.style.borderRadius = "0";
+}
+
 window.addEventListener("resize", () => {
 
     imageSlideWidth = imagesSlide[0].getBoundingClientRect().width;
@@ -235,15 +280,19 @@ const focusedImage = document.getElementById("focusedImage");
 const ArrowLeft = document.getElementById("leftArrow");
 const ArrowRight = document.getElementById("rightArrow");
 const imagesSlide = document.querySelectorAll(".slideImage");
+const focusArrows = document.querySelectorAll(".focusArrow");
 const slideWrapper = document.getElementById("slideWrapper");
+const zoomButton = document.getElementById("zoomButton");
 const nImages = imagesSlide.length;
 const nImagesShown = 5;
 const rightLimit = nImages - nImagesShown;
 const modal = document.getElementById('productModal');
+const modalContainer = document.getElementById('modalContainer');
 
 let processing = false;
 let prevFocusedIndex = 0;
 let focusedMode = false;
+let fullImgMode = false;
 
 let startTouch = 0;
 let currentSliderPos = 0;

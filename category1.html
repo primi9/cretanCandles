@@ -118,11 +118,14 @@
       </p>
    </section>
     <!--When a product is clicked-->
-    <img src="" alt="" id = "productModal" class = "image-details-show" onclick = "displayFullImg()">
+    <div id = "modalContainer" class = "modal-container">
+      <img src="" alt="" id = "productModal" class = "image-details-show" >
+    </div>
     
     <div id = "handleButtons" class = "handleContainer">
-      <button class="prevArrowFocused" onclick="arrowPressed(-1)">&#10094;</button>
-      <button class="nextArrowFocused" onclick="arrowPressed(1)">&#10095;</button>
+      <button class="focusArrow prevArrowFocused" onclick="arrowPressed(-1)">&#10094;</button>
+      <button class="focusArrow nextArrowFocused" onclick="arrowPressed(1)">&#10095;</button>
+      <span id = "zoomButton" class = "fas fa-search-plus full-screen-button" onclick = "displayFullImg()"></span>
       <span  class="close-button" onclick="closeModal()">&times;</span>
       <div onclick = "closeModal()" class = "blur-overlay"></div>
     </div>

@@ -66,9 +66,9 @@
 }
 
 .position-mg {
-    position: absolute;
-    top:2%;
-    right:2%;
+    align-self: flex-start;
+    padding:0.5rem;
+    margin-left:0.5rem;
     font-size: 2rem;
     color:#042789;
     background: transparent;
@@ -169,16 +169,22 @@
 
 /*WHEN AN IMAGE IS CLICKED*/
 
-.image-details-show {
-    display:none;
+.modal-container {
     position:fixed;
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
+    display:none;
     z-index: 100;
+    overflow: hidden;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.image-details-show {
+    display:block;
     max-width:80dvw;
     max-height: 95dvh;
-    overflow: hidden;
     object-fit:contain;
     transition: opacity 0.2s ease;
     opacity: 1;
@@ -206,10 +212,22 @@
     z-index: 10;
 }
 
+.full-screen-button {
+    position:fixed;
+    top: 1rem;
+    left:1rem;
+    z-index: 100;
+    color: white;
+    font-weight: bold;
+    font-size: 2rem;
+    padding:0.2rem;
+    line-height: 1;
+}
+
 .close-button {
     position:fixed;
     top: 0;
-    right:1%;
+    right:1rem;
     z-index: 100;
     color: white;
     font-weight: bold;
@@ -219,11 +237,15 @@
 }
 
 .close-button:hover,
-.close-button:focus {
+.close-button:focus, 
+.full-screen-button:hover,
+.full-screen-button:focus{
   color: #999;
   text-decoration: none;
   cursor: pointer;
 }
+
+
 
 .prevArrowFocused, .nextArrowFocused {
   position: fixed;
@@ -259,5 +281,3 @@
         color: white;
     }
 }
-
-
