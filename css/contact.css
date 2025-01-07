@@ -104,7 +104,9 @@
     width:100%;
     font-size: 1rem;/*20px*/
     padding: 0.5rem 1rem;
-    border-radius: 1.5rem;
+    border-radius: 0.7rem;
+    border-style: groove;
+    border-width: 0.15rem;
 }
 
 .message-bt {
@@ -112,7 +114,10 @@
     width:100%;
     font-size: 1rem;/*20px*/
     padding: 0.5rem 1rem;
-    border-radius: 1.5rem;
+    border-radius: 0.7rem;
+    border-style: groove;
+    border-width: 0.15rem;
+
 }
 
 .send_btn {

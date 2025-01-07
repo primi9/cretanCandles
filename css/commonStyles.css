@@ -402,7 +402,6 @@ button {
     padding:1rem;
     display:flex;
     flex-direction: row;
-    flex-wrap: wrap-reverse;
     background-color: #27418a;
     height: auto;
     flex-wrap: wrap;

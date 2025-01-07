@@ -1,4 +1,3 @@
-
 .category-header-text {
     width:90dvw;
     font-size: 2rem;
@@ -244,8 +243,6 @@
   text-decoration: none;
   cursor: pointer;
 }
-
-
 
 .prevArrowFocused, .nextArrowFocused {
   position: fixed;
