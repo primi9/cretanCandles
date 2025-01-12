@@ -189,6 +189,7 @@
     opacity: 1;
     border-radius: 3rem;
     box-shadow: 0px 0.5rem 1rem rgba(255, 229, 207, 0.1);
+    cursor:zoom-in;
 }
 
 @media (max-aspect-ratio: 1.4){
@@ -211,18 +212,6 @@
     z-index: 10;
 }
 
-.full-screen-button {
-    position:fixed;
-    top: 1rem;
-    left:1rem;
-    z-index: 100;
-    color: white;
-    font-weight: bold;
-    font-size: 2rem;
-    padding:0.2rem;
-    line-height: 1;
-}
-
 .close-button {
     position:fixed;
     top: 0;
@@ -236,9 +225,7 @@
 }
 
 .close-button:hover,
-.close-button:focus, 
-.full-screen-button:hover,
-.full-screen-button:focus{
+.close-button:focus {
   color: #999;
   text-decoration: none;
   cursor: pointer;
@@ -250,7 +237,7 @@
   top:50%;
   transform: translateY(-50%);
   text-align: center;
-  padding: 0.4rem;
+  padding: 0.5rem;
   color: white;
   background-color: transparent;
   font-weight: bold;

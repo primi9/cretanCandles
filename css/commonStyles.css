@@ -458,18 +458,3 @@ button {
 .padding_left {
     padding-left:0.5rem;
 }
-
-
-.attributes {
-    display:flex;
-    flex-direction: column;
-}
-
-.attributes * {
-    font-size: 0.7rem;
-    color:white;
-}
-
-.attributes a:hover {
-    color:orange;
-}

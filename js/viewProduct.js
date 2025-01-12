@@ -239,30 +239,26 @@ function disableFullimg(){
     modal.style.maxHeight = "95dvh";
     modal.style.objectFit = "contain";
     modal.style.borderRadius = "3rem";
+    modal.style.cursor = "zoom-in";
     modalContainer.style.overflow = "hidden";
-
-    zoomButton.classList.remove("fa-search-minus");
-    zoomButton.classList.add("fa-search-plus");
 
     fullImgMode = false;
 }
 
-function displayFullImg() {
+function manageZoom(){
 
     if(fullImgMode){
         disableFullimg();
         return;
     }
-
+    
     fullImgMode = true;
-
-    zoomButton.classList.remove("fa-search-plus");
-    zoomButton.classList.add("fa-search-minus");
 
     focusArrows[0].style.display = "none";
     focusArrows[1].style.display = "none";
+    
     modalContainer.style.overflow = "auto";
-
+    modal.style.cursor = "zoom-out";
     modal.style.maxWidth = "none";
     modal.style.maxHeight = "none";
     modal.style.objectFit = "fill";
@@ -282,7 +278,6 @@ const ArrowRight = document.getElementById("rightArrow");
 const imagesSlide = document.querySelectorAll(".slideImage");
 const focusArrows = document.querySelectorAll(".focusArrow");
 const slideWrapper = document.getElementById("slideWrapper");
-const zoomButton = document.getElementById("zoomButton");
 const nImages = imagesSlide.length;
 const nImagesShown = 5;
 const rightLimit = nImages - nImagesShown;
