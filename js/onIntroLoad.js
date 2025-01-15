@@ -5,11 +5,12 @@ window.onload = function() {
 
     const gridElement = document.getElementById("imageGrid");
     const images = document.querySelectorAll(".to-reveal");
- 
+
     images.forEach((image, index) => {
-          setTimeout(() => {
-           image.style.transform = "scale(1)";
-       }, index * 800);
+        setTimeout(() => {
+            image.style.opacity = '1';
+            console.log(index * 800);
+        }, index * 800);
     });
     
     setTimeout(() => {
