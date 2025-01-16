@@ -10,10 +10,10 @@ window.onload = function() {
         setTimeout(() => {
             image.style.opacity = '1';
             console.log(index * 800);
-        }, index * 800);
+        }, index * 800 + 100);
     });
     
     setTimeout(() => {
        headerSection.classList.add('reveal-after');
-    }, images.length * 800); 
+    }, images.length * 800 + 100); 
 };   
