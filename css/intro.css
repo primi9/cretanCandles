@@ -24,6 +24,10 @@
     align-content: center;
 }
 
+.header-main-item {
+    font-size: 1.4rem;
+}
+
 /*
 .reveal-after-button {
     display:block;
