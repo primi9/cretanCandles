@@ -305,6 +305,8 @@ slideWrapper.addEventListener('touchstart' , touchStartSlide);
 slideWrapper.addEventListener('touchmove' , touchMoveSlide);
 slideWrapper.addEventListener('touchend' , touchEndSlide);
 
+
+focusedImage.src = imagesSlide[0].src;
 imagesSlide[0].classList.add("active-slideShow-image");
 ArrowLeft.disabled = true;
 
