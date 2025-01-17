@@ -1,5 +1,6 @@
-//document.addEventListener("DOMContentLoaded", () => {
-window.onload = function() {
+const startOffset = 200;
+document.addEventListener("DOMContentLoaded", () => {
+//window.onload = function() {
     
     const headerSection = document.getElementById("headerReveal");
 
@@ -9,10 +10,10 @@ window.onload = function() {
     images.forEach((image, index) => {
         setTimeout(() => {
             image.style.transform = "scale(1)";
-        }, index * 900 + 100);
+        }, index * 900 + startOffset);
     });
     
     setTimeout(() => {
        headerSection.classList.add('reveal-after');
-    }, images.length * 900 + 100); 
-};   
+    }, images.length * 900 + startOffset); 
+});   

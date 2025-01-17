@@ -9,7 +9,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: opacity 1s ease; 
+    transition: opacity 1.2s ease; 
 }
 
 .header-section-intro {
