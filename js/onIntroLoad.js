@@ -8,7 +8,7 @@ window.onload = function() {
 
     images.forEach((image, index) => {
         setTimeout(() => {
-            image.style.opacity = '1';
+            image.style.transform = "scale(1)";
         }, index * 900 + 100);
     });
     
