@@ -1,5 +1,4 @@
 const startOffset = 200;
-document.addEventListener("DOMContentLoaded", () => {
 //window.onload = function() {
     
     const headerSection = document.getElementById("headerReveal");
@@ -16,4 +15,3 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
        headerSection.classList.add('reveal-after');
     }, images.length * 900 + startOffset); 
-});   
