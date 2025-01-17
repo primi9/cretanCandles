@@ -1,5 +1,4 @@
 //document.addEventListener("DOMContentLoaded", () => {
-    /*
 const startOffset = 300;
 window.onload = function() {
     
@@ -18,7 +17,8 @@ window.onload = function() {
        headerSection.classList.add('reveal-after');
     }, images.length * 900 + startOffset); 
 };
-*/
+/*
+
 
 function imagesReady(){
     images.forEach((image, index) => {
@@ -53,3 +53,5 @@ images.forEach(image => {
     if(image.complete)
         imageLoaded();
 });
+
+*/
