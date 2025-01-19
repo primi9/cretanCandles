@@ -379,6 +379,7 @@ button {
 
 .header-main-item {
     display:flex;
+    align-items: center;
 }
 
 .header-main-item *{
