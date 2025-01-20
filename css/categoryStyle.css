@@ -233,7 +233,6 @@
 
 .prevArrowFocused, .nextArrowFocused {
   position: fixed;
-  height:100%;
   top:50%;
   transform: translateY(-50%);
   text-align: center;
