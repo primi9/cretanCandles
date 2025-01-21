@@ -16,6 +16,12 @@
     width: 100%;
 }
 
+.footer-section {
+    transition: opacity 1.2s ease; 
+    display:none;
+    margin-top: 0.2rem;
+}
+
 .navbar-light .navbar-nav .nav-link {
     color: white;
 }
@@ -64,9 +70,8 @@
 .images-grid {
     display: grid;
     width:100dvw;
-    height:100dvh;
-    gap:1%;
-    padding:1%;
+    gap:0.5rem;
+    padding:0.7rem;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
 }
@@ -78,7 +83,7 @@
 }
 
 @starting-style {
-    .header-reveal {
+    .header-reveal, .footer-section {
         opacity: 0;
     }
 }
@@ -87,7 +92,7 @@
     will-change: opacity;
     object-fit: cover;
     width:100%;
-    height:100%;
+    aspect-ratio: 2/3;
     transition: opacity 1s ease-in-out;
     opacity: 0;
 }
@@ -98,3 +103,4 @@
         grid-template-rows: repeat(1, 1fr);
     } 
 }
+

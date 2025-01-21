@@ -1,10 +1,11 @@
 //document.addEventListener("DOMContentLoaded", () => {
-const startOffset = 300;
+const startOffset = 100;
 window.onload = function() {
     
     const headerSection = document.getElementById("headerReveal");
+    const footerSection = document.getElementById("footerReveal");
 
-    const gridElement = document.getElementById("imageGrid");
+    //const gridElement = document.getElementById("imageGrid");
     const images = document.querySelectorAll(".to-reveal");
 
     images.forEach((image, index) => {
@@ -15,6 +16,7 @@ window.onload = function() {
     
     setTimeout(() => {
        headerSection.classList.add('reveal-after');
+       footerSection.classList.add('reveal-after');
     }, images.length * 1000 + startOffset); 
 };
 /*
