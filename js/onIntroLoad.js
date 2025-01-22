@@ -16,8 +16,7 @@ window.onload = function() {
     
     setTimeout(() => {
        headerSection.classList.add('reveal-after');
-       //footerSection.classList.add('reveal-after');
-    }, images.length * 1000 + startOffset); 
+    }, images.length * 1000 + startOffset + 50); 
 };
 /*
 

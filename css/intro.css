@@ -1,6 +1,5 @@
 .header-reveal {
     display:none;
-    opacity:0;
     width:100%;
     min-height:30%;
     z-index: 100;
@@ -9,7 +8,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: opacity 1.2s ease; 
+    transition: transform 1s ease;
+    transform-origin:top;
 }
 
 .header-section-intro {
@@ -37,7 +37,7 @@
 */
 .reveal-after {
     display:flex;
-    opacity:1;
+    transform:scale(1);
 }
 
 .enter-button {
@@ -78,7 +78,7 @@
 
 @starting-style {
     .header-reveal {
-        opacity: 0;
+        transform: scale(0);
     }
 }
 
@@ -91,10 +91,9 @@
     opacity: 0;
 }
 
-@media(min-width:1100px){
+@media(min-width:900px){
     .images-grid {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(1, 1fr);
     } 
 }
-
