@@ -16,12 +16,6 @@
     width: 100%;
 }
 
-.footer-section {
-    transition: opacity 1.2s ease; 
-    display:none;
-    margin-top: 0.2rem;
-}
-
 .navbar-light .navbar-nav .nav-link {
     color: white;
 }
@@ -83,7 +77,7 @@
 }
 
 @starting-style {
-    .header-reveal, .footer-section {
+    .header-reveal {
         opacity: 0;
     }
 }

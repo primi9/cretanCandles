@@ -3,7 +3,7 @@ const startOffset = 100;
 window.onload = function() {
     
     const headerSection = document.getElementById("headerReveal");
-    const footerSection = document.getElementById("footerReveal");
+    //const footerSection = document.getElementById("footerReveal");
 
     //const gridElement = document.getElementById("imageGrid");
     const images = document.querySelectorAll(".to-reveal");
@@ -16,7 +16,7 @@ window.onload = function() {
     
     setTimeout(() => {
        headerSection.classList.add('reveal-after');
-       footerSection.classList.add('reveal-after');
+       //footerSection.classList.add('reveal-after');
     }, images.length * 1000 + startOffset); 
 };
 /*
