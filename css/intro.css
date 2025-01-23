@@ -8,8 +8,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    transform-origin:bottom;
-    transform: scale(0);
+    opacity: 0;
 }
 
 .header-section-intro {
@@ -28,17 +27,17 @@
     font-size: 1.4rem;
 }
 
-.scale-up {
+.reveal-after {
     display:flex;
-    animation: scaleUp 1s ease-in-out forwards;
+    animation: revealAfter 1s ease-in forwards;
 }
 
-@keyframes scaleUp {
+@keyframes revealAfter {
     from {
-      transform: scale(0);
+      opacity:0;
     }
     to {
-      transform: scale(1);
+        opacity:1;
     }
   }
 
@@ -49,10 +48,6 @@
     transition: opacity 0.8s ease-in-out; 
 } 
 */
-.reveal-after {
-    display:flex;
-    transform:scale(1);
-}
 
 .enter-button {
 

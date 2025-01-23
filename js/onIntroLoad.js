@@ -16,7 +16,7 @@ window.onload = function() {
     
     setTimeout(() => {
 
-       headerSection.classList.add('scale-up');
+       headerSection.classList.add('reveal-after');
     }, images.length * 1000 + startOffset + 50); 
 };
 /*
