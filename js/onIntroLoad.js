@@ -10,12 +10,13 @@ window.onload = function() {
 
     images.forEach((image, index) => {
         setTimeout(() => {
-            image.style.opacity = "1";
+            image.classList.add("image-visible");
         }, index * 1000 + startOffset);
     });
     
     setTimeout(() => {
-       headerSection.classList.add('reveal-after');
+
+       headerSection.classList.add('scale-up');
     }, images.length * 1000 + startOffset + 50); 
 };
 /*

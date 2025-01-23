@@ -8,8 +8,8 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: transform 1s ease;
-    transform-origin:top;
+    transform-origin:bottom;
+    transform: scale(0);
 }
 
 .header-section-intro {
@@ -27,6 +27,20 @@
 .header-main-item {
     font-size: 1.4rem;
 }
+
+.scale-up {
+    display:flex;
+    animation: scaleUp 1s ease-in-out forwards;
+}
+
+@keyframes scaleUp {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
 
 /*
 .reveal-after-button {
@@ -76,19 +90,16 @@
     overflow: hidden;
 }
 
-@starting-style {
-    .header-reveal {
-        transform: scale(0);
-    }
-}
-
 .to-reveal {
     will-change: opacity;
-    object-fit: cover;
     width:100%;
     aspect-ratio: 2/3;
     transition: opacity 1s ease-in-out;
     opacity: 0;
+}
+
+.image-visible {
+    opacity:1;
 }
 
 @media(min-width:900px){
