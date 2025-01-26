@@ -432,9 +432,11 @@ button {
 }
 
 .useful_text {
-    font-size: 1.7rem;/*26px*/
+    font-size: 1.9rem;
     color: #ffffff;
     font-weight: bold;
+    margin:0;
+    padding:0;
 }
 
 .location_text {
@@ -449,10 +451,6 @@ button {
 @media(max-width:800px){
     .footer_menu , .location_text{
         width:100%;
-    }
-
-    .location_text {
-        padding-bottom: 2rem;
     }
 }
 
