@@ -55,15 +55,14 @@
     top:50%;
     transform: translate(50%, -50%);
     background: transparent;
-    color:rgb(20, 20, 53);
+    color:rgb(11, 11, 34);
     padding:0.3rem;
     font-size:3rem;
 
 }
 
 .play-button:hover {
-    color:#042789;
-    transform: translate(50%,-50%) scale(1.1);
+    font-size:3.5rem;
 }
 
 @media(max-width:800px){
