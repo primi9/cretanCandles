@@ -159,48 +159,18 @@ function applySmoothTransform() {
 }
 */
 
-function leftArrowPressed(){
-
-    ArrowRight.disabled = false;
-
-    currentSliderPos += imageSlideWidth;
-
-    if(currentSliderPos == 0)
-        ArrowLeft.disabled = true;
-
+function smoothSlide(){
+    smoothTransition = true;
+    slideWrapper.style.transition = "transform 0.3s ease-in-out";
     slideWrapper.style.transform = `translateX(${currentSliderPos}px)`;
+
+    slideWrapper.addEventListener('transitionend', () => {
+        slideWrapper.style.transition = "";
+        smoothTransition = false;
+    }, { once: true });
 }
 
-function rightArrowPressed(){
-
-    ArrowLeft.disabled = false;
-    currentSliderPos -= imageSlideWidth;
-
-    if(currentSliderPos == -rightLimit * imageSlideWidth)
-        ArrowRight.disabled = true;
-
-    slideWrapper.style.transform = `translateX(${currentSliderPos}px)`;
-}
-
-function touchStartSlide(event) {
-
-    maxWidth = imageSlideWidth * nImages;
-    startTouch = event.touches[0].clientX;
-    document.body.style.overflowY = "hidden";
-}
-
-function touchMoveSlide(event) {
-
-    const moveTouch = event.touches[0].clientX;
-    const moveOffset = moveTouch - startTouch;
-
-    if (currentSliderPos + moveOffset >= 0 || currentSliderPos + moveOffset <= - rightLimit * imageSlideWidth)
-        return;
-
-    slideWrapper.style.transform = `translateX(${currentSliderPos + moveOffset}px)`;
-}
-
-function fixAlignment(){
+function fixSliderPos(){
 
     if (currentSliderPos > 0)
         currentSliderPos = 0;
@@ -224,20 +194,82 @@ function fixAlignment(){
         ArrowRight.disabled = true;
     else
         ArrowRight.disabled = false;
+}
+
+function fixAlignment(){
+
+    fixSliderPos();
+
+    if(currentSliderPos == prevSliderPos)
+        return;
+
+   smoothSlide();
+}
+
+function leftArrowPressed(){
+
+    if(smoothTransition)
+        return;
+
+    ArrowRight.disabled = false;
+
+    currentSliderPos += imageSlideWidth;
+
+    if(currentSliderPos == 0)
+        ArrowLeft.disabled = true;
 
     slideWrapper.style.transform = `translateX(${currentSliderPos}px)`;
 }
 
+function rightArrowPressed(){
+
+    if(smoothTransition)
+        return;
+
+    ArrowLeft.disabled = false;
+    currentSliderPos -= imageSlideWidth;
+
+    if(currentSliderPos == -rightLimit * imageSlideWidth)
+        ArrowRight.disabled = true;
+
+    slideWrapper.style.transform = `translateX(${currentSliderPos}px)`;
+}
+
+function touchStartSlide(event) {
+
+    if(smoothTransition)
+        return;
+
+    maxWidth = imageSlideWidth * nImages;
+    startTouch = event.touches[0].clientX;
+    document.body.style.overflowY = "hidden";
+}
+
+function touchMoveSlide(event) {
+
+    const moveTouch = event.touches[0].clientX;
+    const moveOffset = moveTouch - startTouch;
+
+    if (currentSliderPos + moveOffset >= 0 || currentSliderPos + moveOffset <= - rightLimit * imageSlideWidth)
+        return;
+
+    slideWrapper.style.transform = `translateX(${currentSliderPos + moveOffset}px)`;
+}
+
 function touchEndSlide(event) {
 
+    prevSliderPos = currentSliderPos;
     currentSliderPos += event.changedTouches[0].clientX - startTouch;
+
     fixAlignment();
     document.body.style.overflowY = "auto";
-
 }
 
 function mouseStartSlide(event){
 
+    if(smoothTransition)
+        return;
+    
     maxWidth = imageSlideWidth * nImages;
     startTouch = event.clientX;
 
@@ -267,7 +299,9 @@ function mouseEndSlide(event) {
     if(!holdingMouse)
         return;
 
+    prevSliderPos = currentSliderPos;
     currentSliderPos += event.clientX - startTouch;
+
     fixAlignment();
     holdingMouse = false;
 }
@@ -310,7 +344,9 @@ function manageZoom(){
 window.addEventListener("resize", () => {
 
     imageSlideWidth = imagesSlide[0].getBoundingClientRect().width;
-    fixAlignment();
+    fixSliderPos();
+    slideWrapper.style.transform = `translateX(${currentSliderPos}px)`;
+    prevSliderPos = currentSliderPos;
 });
 
 const productsContainer = document.getElementById("productsContainer");
@@ -330,12 +366,14 @@ const modalContainer = document.getElementById('modalContainer');
 
 let holdTimeout;
 let holdingMouse = false;
+let smoothTransition = false;
 let processing = false;
 let prevFocusedIndex = 0;
 let focusedMode = false;
 let fullImgMode = false;
 
 let startTouch = 0;
+let prevSliderPos = 0;
 let currentSliderPos = 0;
 let imageSlideWidth = imagesSlide[0].getBoundingClientRect().width;
 

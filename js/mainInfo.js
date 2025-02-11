@@ -1,6 +1,4 @@
 const mainInfo = document.getElementById("mainInfo");
-const playButton = document.getElementById("playButton");
-const video = document.getElementById("video");
 
 window.addEventListener('scroll', function() {
 
@@ -19,16 +17,3 @@ window.addEventListener('scroll', function() {
     }
 
 });
-
-function playButtonClick(){
-    
-    if(video.paused){
-        video.style.opacity = "1";
-        playButton.style.display = "none";
-        video.play();
-    } else {
-        video.pause();
-        video.style.opacity = "0.7";
-        playButton.style.display = "block";
-    }
-}
