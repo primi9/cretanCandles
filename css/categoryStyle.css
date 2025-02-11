@@ -42,6 +42,24 @@
     overflow: hidden;
 }
 
+@media(min-height:900px){
+    .products-focused-image{
+        height:60vh;
+    }
+}
+
+@media(min-height:1100px){
+    .products-focused-image{
+        height:50vh;
+    }
+}
+
+@media(min-height:1300px){
+    .products-focused-image{
+        height:40vh;
+    }
+}
+
 .products-focused-image img {
     max-width:70%;
     object-fit: cover;

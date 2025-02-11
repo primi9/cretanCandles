@@ -131,6 +131,9 @@ function closeModal() {
 
 function setFocusedImage(index){
     
+    if(holdingMouse)
+        return;
+
     imagesSlide[prevFocusedIndex].classList.remove("active-slideShow-image");
     imagesSlide[index].classList.add("active-slideShow-image");
     focusedImage.src = imagesSlide[index].src;
@@ -183,6 +186,7 @@ function touchStartSlide(event) {
 
     maxWidth = imageSlideWidth * nImages;
     startTouch = event.touches[0].clientX;
+    document.body.style.overflowY = "hidden";
 }
 
 function touchMoveSlide(event) {
@@ -228,6 +232,44 @@ function touchEndSlide(event) {
 
     currentSliderPos += event.changedTouches[0].clientX - startTouch;
     fixAlignment();
+    document.body.style.overflowY = "auto";
+
+}
+
+function mouseStartSlide(event){
+
+    maxWidth = imageSlideWidth * nImages;
+    startTouch = event.clientX;
+
+    holdTimeout = setTimeout(() => {
+        holdingMouse = true;
+    }, 80);
+}
+
+function mouseMoveSlide(event) {
+
+    if(!holdingMouse)
+        return;
+
+    const moveTouch = event.clientX;
+    const moveOffset = moveTouch - startTouch;
+
+    if (currentSliderPos + moveOffset >= 0 || currentSliderPos + moveOffset <= - rightLimit * imageSlideWidth)
+        return;
+
+    slideWrapper.style.transform = `translateX(${currentSliderPos + moveOffset}px)`;
+}
+
+function mouseEndSlide(event) {
+
+    clearTimeout(holdTimeout);
+
+    if(!holdingMouse)
+        return;
+
+    currentSliderPos += event.clientX - startTouch;
+    fixAlignment();
+    holdingMouse = false;
 }
 
 function disableFullimg(){
@@ -278,12 +320,16 @@ const ArrowRight = document.getElementById("rightArrow");
 const imagesSlide = document.querySelectorAll(".slideImage");
 const focusArrows = document.querySelectorAll(".focusArrow");
 const slideWrapper = document.getElementById("slideWrapper");
+const slideContainer = document.getElementById("slideContainer");
+
 const nImages = imagesSlide.length;
 const nImagesShown = 5;
 const rightLimit = nImages - nImagesShown;
 const modal = document.getElementById('productModal');
 const modalContainer = document.getElementById('modalContainer');
 
+let holdTimeout;
+let holdingMouse = false;
 let processing = false;
 let prevFocusedIndex = 0;
 let focusedMode = false;
@@ -305,6 +351,13 @@ slideWrapper.addEventListener('touchstart' , touchStartSlide);
 slideWrapper.addEventListener('touchmove' , touchMoveSlide);
 slideWrapper.addEventListener('touchend' , touchEndSlide);
 
+slideWrapper.addEventListener('mousedown' , mouseStartSlide);
+slideWrapper.addEventListener('mousemove' , mouseMoveSlide);
+slideWrapper.addEventListener('mouseup' , mouseEndSlide);
+
+slideContainer.addEventListener('mouseleave' , function(event) {
+    mouseEndSlide(event);
+});
 
 focusedImage.src = imagesSlide[0].src;
 imagesSlide[0].classList.add("active-slideShow-image");
