@@ -131,7 +131,7 @@ function closeModal() {
 
 function setFocusedImage(index){
     
-    if(holdingMouse)
+    if(holdingSlider)
         return;
 
     imagesSlide[prevFocusedIndex].classList.remove("active-slideShow-image");
@@ -160,12 +160,17 @@ function applySmoothTransform() {
 */
 
 function smoothSlide(){
+    console.log("before transition:");
+    console.log(currentSliderPos);
+
     smoothTransition = true;
     slideWrapper.style.transition = "transform 0.3s ease-in-out";
     slideWrapper.style.transform = `translateX(${currentSliderPos}px)`;
 
     slideWrapper.addEventListener('transitionend', () => {
+        console.log("transition ended");
         slideWrapper.style.transition = "";
+        movementCheck = false;
         smoothTransition = false;
     }, { once: true });
 }
@@ -196,14 +201,14 @@ function fixSliderPos(){
         ArrowRight.disabled = false;
 }
 
-function fixAlignment(){
+function fixAlignment(endTouch){
+
+    currentSliderPos += endTouch - startTouch;
 
     fixSliderPos();
 
-    if(currentSliderPos == prevSliderPos)
-        return;
-
-   smoothSlide();
+    if (movementCheck && moveSliderPos != currentSliderPos)
+        smoothSlide();
 }
 
 function leftArrowPressed(){
@@ -239,71 +244,73 @@ function touchStartSlide(event) {
 
     if(smoothTransition)
         return;
-
+    
     maxWidth = imageSlideWidth * nImages;
     startTouch = event.touches[0].clientX;
+
     document.body.style.overflowY = "hidden";
+    holdingSlider = true;
 }
 
 function touchMoveSlide(event) {
 
-    const moveTouch = event.touches[0].clientX;
-    const moveOffset = moveTouch - startTouch;
-
-    if (currentSliderPos + moveOffset >= 0 || currentSliderPos + moveOffset <= - rightLimit * imageSlideWidth)
+    if(!holdingSlider || smoothTransition)
         return;
 
-    slideWrapper.style.transform = `translateX(${currentSliderPos + moveOffset}px)`;
+    const tempSliderPos = currentSliderPos + event.touches[0].clientX - startTouch;
+
+    if (tempSliderPos > 0 || tempSliderPos < - rightLimit * imageSlideWidth)
+        return;
+
+    movementCheck = true;
+    moveSliderPos = tempSliderPos;
+    slideWrapper.style.transform = `translateX(${moveSliderPos}px)`;
 }
 
 function touchEndSlide(event) {
 
-    prevSliderPos = currentSliderPos;
-    currentSliderPos += event.changedTouches[0].clientX - startTouch;
+    if(!holdingSlider)
+        return;
 
-    fixAlignment();
+    holdingSlider = false;
     document.body.style.overflowY = "auto";
+
+    fixAlignment(event.changedTouches[0].clientX);
 }
 
 function mouseStartSlide(event){
 
     if(smoothTransition)
         return;
-    
+
     maxWidth = imageSlideWidth * nImages;
     startTouch = event.clientX;
-
-    holdTimeout = setTimeout(() => {
-        holdingMouse = true;
-    }, 80);
+    holdingSlider = true;
 }
 
 function mouseMoveSlide(event) {
 
-    if(!holdingMouse)
+    if(!holdingSlider || smoothTransition)
+         return;
+    
+    const tempSliderPos = currentSliderPos + event.clientX - startTouch;
+
+    if (tempSliderPos > 0 || tempSliderPos < - rightLimit * imageSlideWidth)
         return;
 
-    const moveTouch = event.clientX;
-    const moveOffset = moveTouch - startTouch;
+    movementCheck = true;
+    moveSliderPos = tempSliderPos;
 
-    if (currentSliderPos + moveOffset >= 0 || currentSliderPos + moveOffset <= - rightLimit * imageSlideWidth)
-        return;
-
-    slideWrapper.style.transform = `translateX(${currentSliderPos + moveOffset}px)`;
+    slideWrapper.style.transform = `translateX(${moveSliderPos}px)`;
 }
 
 function mouseEndSlide(event) {
 
-    clearTimeout(holdTimeout);
-
-    if(!holdingMouse)
+    if(!holdingSlider)
         return;
 
-    prevSliderPos = currentSliderPos;
-    currentSliderPos += event.clientX - startTouch;
-
-    fixAlignment();
-    holdingMouse = false;
+    holdingSlider = false;
+    fixAlignment(event.clientX);
 }
 
 function disableFullimg(){
@@ -364,8 +371,7 @@ const rightLimit = nImages - nImagesShown;
 const modal = document.getElementById('productModal');
 const modalContainer = document.getElementById('modalContainer');
 
-let holdTimeout;
-let holdingMouse = false;
+let holdingSlider = false;
 let smoothTransition = false;
 let processing = false;
 let prevFocusedIndex = 0;
@@ -373,8 +379,9 @@ let focusedMode = false;
 let fullImgMode = false;
 
 let startTouch = 0;
-let prevSliderPos = 0;
 let currentSliderPos = 0;
+let movementCheck = false;
+let moveSliderPos = 0;
 let imageSlideWidth = imagesSlide[0].getBoundingClientRect().width;
 
 //when product is focused
