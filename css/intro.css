@@ -53,8 +53,7 @@
     height:auto;
     font-size:1.2rem;/*18px*/
     font-weight:600;
-    background: linear-gradient(to right, #dde2ec, #ccd6ec);
-
+    background-color: white;
     color:#042789;
     text-align:center;
     letter-spacing: 0.2rem;
@@ -64,8 +63,9 @@
 }
 
 .enter-button:hover {
-    color: white;
-    background-color: #EF9A08;
+    color: black;
+    background: linear-gradient(to right, #b8d1ff, #ffcc80);
+
 }
 
 .images-grid {
