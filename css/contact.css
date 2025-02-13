@@ -1,5 +1,3 @@
-
-
 .contact-intro-text {
     display:flex;
     flex-direction: column;
@@ -34,6 +32,8 @@
 .map-responsive iframe {
     width: 100%;
     height:100%;
+    border-radius: 2rem;
+
 }
 
 .contact_section_2 {

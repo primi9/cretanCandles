@@ -4,7 +4,6 @@
     align-items: center;
     width:95vw;
     padding:1rem;
-    background-color: rgb(244, 247, 248);
     margin:1rem auto;
     justify-content:space-between
 }
@@ -16,7 +15,6 @@
     padding:2%;
     align-items: center;
     justify-content: center;
-    background-color: rgb(244, 247, 248);
 }
 
 .services-text h1 {
@@ -95,7 +93,6 @@
     width:100%;
     max-height:100vh;
     aspect-ratio: calc(2 * var(--categories-image-aspect-ratio));
-    background-color: rgb(244, 247, 248);
 }
 
 .category-description:hover{

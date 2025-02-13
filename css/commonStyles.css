@@ -18,7 +18,8 @@ body {
     line-height: 1.80857;
     font-weight: normal;
     overflow-x: hidden !important;
-    background-color:white;
+    background: radial-gradient(circle, #e9d5b6, #9ab2f5);
+
     font-family: 'Arial', sans-serif;
 }
 
@@ -184,13 +185,9 @@ button {
     width: 100%;
     
     min-height:15vh;
-    background-color: #042789;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: radial-gradient(circle, #4c5c86, #27418a);
     display:flex;
     flex-direction: column;
-    border:none;
 }
 
 .header-container {
@@ -233,7 +230,7 @@ button {
     align-items: center;
     justify-content: center;
     overflow-wrap: break-word;
-    background-color: #27418a;
+    background: radial-gradient(circle, #4c5c86, #27418a);
     z-index: 9;
     position: sticky;
     top:0;
@@ -403,7 +400,7 @@ button {
     padding:1rem;
     display:flex;
     flex-direction: row;
-    background-color: #27418a;
+    background: radial-gradient(circle, #4c5c86, #27418a);
     height: auto;
     flex-wrap: wrap;
 }
