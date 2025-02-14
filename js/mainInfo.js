@@ -1,4 +1,3 @@
-const mainInfo = document.getElementById("mainInfo");
 
 window.addEventListener('scroll', function() {
 
@@ -15,5 +14,4 @@ window.addEventListener('scroll', function() {
         mainInfo.children[3].style.display = "inline-block";
         mainInfo.children[4].style.display = "inline-block";
     }
-
 });
