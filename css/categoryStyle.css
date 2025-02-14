@@ -106,7 +106,7 @@
     cursor:default;
 }
 
-@media (max-width:600px) {
+@media (max-width:600px) , (aspect-ratio < 0.7) {
 
     .products-container{
         display:flex;
@@ -122,7 +122,7 @@
     .products-focused-image {
         width:100%;
         order:2;
-        margin-right: 10%;
+        margin:2rem 10% 2rem 0;
     }
 
     .products-focused-image img{
