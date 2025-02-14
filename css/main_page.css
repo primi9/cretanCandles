@@ -56,7 +56,6 @@
     color:rgb(11, 11, 34);
     padding:0.3rem;
     font-size:3rem;
-
 }
 
 .play-button:hover {
@@ -148,6 +147,23 @@
         grid-template-rows: repeat(4,1fr);
         grid-template-columns: 1fr;
         row-gap: 6dvw;
+    }
+
+    .category-description{
+        aspect-ratio: calc(1.67 * var(--categories-image-aspect-ratio));
+    }
+
+    .category-description img{
+        width:60%;
+    }
+
+    .category-text-description{
+        width:40%;
+        padding:1rem;
+    }
+
+    .category-text-description h2{
+        font-size: 1.2rem;
     }
 }
 
