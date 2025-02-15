@@ -160,15 +160,12 @@ function applySmoothTransform() {
 */
 
 function smoothSlide(){
-    console.log("before transition:");
-    console.log(currentSliderPos);
 
     smoothTransition = true;
     slideWrapper.style.transition = "transform 0.3s ease-in-out";
     slideWrapper.style.transform = `translateX(${currentSliderPos}px)`;
 
     slideWrapper.addEventListener('transitionend', () => {
-        console.log("transition ended");
         slideWrapper.style.transition = "";
         movementCheck = false;
         smoothTransition = false;

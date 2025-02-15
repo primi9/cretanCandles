@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
     const categories = document.querySelectorAll(".category-description");
-    console.log(categories.length);
 
     const observer = new IntersectionObserver(
         (entries) => {
@@ -16,3 +15,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     categories.forEach(category => observer.observe(category));
 });
+
+const mainSlideImages = ["images/candles.png" , "images/candles2.png"];
+const backgroundImg = document.getElementById("backgroundImg");
+const numImages = mainSlideImages.length;
+let index = 0;
+
+function changeSlideBackground() {
+    
+    backgroundImg.style.backgroundImage = `url('${mainSlideImages[index]}')`;
+
+    if(index % 2)
+        backgroundImg.style.transform = "scale(1)";
+    else
+        backgroundImg.style.transform = "scale(1.05)";
+
+    index = (index + 1) % numImages; 
+}
+
+changeSlideBackground();
+setInterval(changeSlideBackground, 4500);
