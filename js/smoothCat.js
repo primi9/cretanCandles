@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     categories.forEach(category => observer.observe(category));
 });
 
-const mainSlideImages = ["images/candles.png" , "images/candles2.png"];
+const mainSlideImages = ["images/candles1.png" , "images/candles2.png" , "images/candles3.png" , "images/candles4.png"];
 const backgroundImg = document.getElementById("backgroundImg");
 const numImages = mainSlideImages.length;
 let index = 0;
@@ -34,4 +34,4 @@ function changeSlideBackground() {
 }
 
 changeSlideBackground();
-setInterval(changeSlideBackground, 4500);
+setInterval(changeSlideBackground, 3500);
