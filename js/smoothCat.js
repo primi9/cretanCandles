@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     categories.forEach(category => observer.observe(category));
 
-    const mainSlideImages = ["images/candles1.png" , "images/candles2.png" , "images/candles3.png" , "images/candles4.png"];
+    const mainSlideImages = ["images/candles1.webp" , "images/candles2.webp" , "images/candles3.webp" , "images/candles4.webp"];
     const backgroundImg = document.getElementById("backgroundImg");
     const numImages = mainSlideImages.length;
     let index = 0;

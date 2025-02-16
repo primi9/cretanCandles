@@ -29,6 +29,11 @@
     font-size: large;
 }
 
+.hidden-back-images {
+    display: none;
+    background-image: url('../images/candles1.webp'), url('../images/candles2.webm'), url('../images/candles3.webm'), url('../images/candles4.webm');
+}
+
 .about-us-container {
     width:50%;
     height:auto;
@@ -47,6 +52,7 @@
     transition: background-image 0.5s ease-in-out , transform 3.5s ease-in-out;
     opacity: 0.7;
     z-index: -1;
+    will-change:background-image;
 }
 
 .image-content {
@@ -79,19 +85,18 @@
 }
 
 .about-button {
-    padding: 0.5rem;
+    padding: 0.3rem;
     border-radius: 1.5rem;
     font-size: 1.5rem;
     white-space: nowrap;
-    background:linear-gradient(to right, #46371d , rgb(223, 196, 160));
+    color:#46371d;
+    font-weight: 600;
     align-self: flex-start;
-    margin-top:1rem;
+    margin-top:0.8rem;
 }
 
 .about-button:hover{
     color:black;
-    background:linear-gradient(to right, rgb(223, 196, 160) , #46371d);
-
 }
 
 @media(max-width:800px){
