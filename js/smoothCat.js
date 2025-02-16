@@ -30,22 +30,23 @@ window.onload = function () {
         }
     }
 
-    function preloadImage(url) {
-        const img = new Image();
-        img.src = url;
+    function preloadImages() {
+
+        for (let i = 0; i < numImages; i++) {
+            const img = new Image();
+            img.src = mainSlideImages[i];
+        }
     }
 
     function changeSlideBackground() {
         index = (index + 1) % numImages;
-        preloadImage(mainSlideImages[(index + 1) % numImages]);
-        backgroundImg.style.backgroundImage = `url('${mainSlideImages[index]}')`;
+        backgroundImg.style.backgroundImage = `url("${mainSlideImages[index]}")`;
     }
 
     const mainSlideImages = ["images/candles1.webp" , "images/candles2.webp" , "images/candles3.webp" , "images/candles4.webp"];
 
     const backgroundImg = document.getElementById("backgroundImg");
     const numImages = mainSlideImages.length;
-
     let index = 0;
     let transformScale = 1;
 
@@ -55,6 +56,7 @@ window.onload = function () {
             changeScale();
     });
 
+    preloadImages();
     changeScale();
     setInterval(changeSlideBackground, 3500);
 };
