@@ -18,12 +18,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 window.onload = function () {
 
-    function startBackgroundSlide() {
-        backgroundImg.style.backgroundImage = `url('${mainSlideImages[index]}')`;
-        backgroundImg.style.transform = "scale(1.1)";
-        index = (index + 1) % numImages;
-    }
-
     function changeScale() {
 
         if(transformScale){
@@ -36,10 +30,16 @@ window.onload = function () {
         }
     }
 
+    function preloadImage(url) {
+        const img = new Image();
+        img.src = url;
+    }
+
     function changeSlideBackground() {
-        
-        backgroundImg.style.backgroundImage = `url('${mainSlideImages[index]}')`;
         index = (index + 1) % numImages;
+        next_img_index = (index + 1) % numImages;
+        preloadImage(mainSlideImages[next_img_index]);
+        backgroundImg.style.backgroundImage = `url('${mainSlideImages[index]}')`;
     }
 
     const mainSlideImages = ["images/candles1.webp" , "images/candles2.webp" , "images/candles3.webp" , "images/candles4.webp"];
@@ -56,7 +56,6 @@ window.onload = function () {
             changeScale();
     });
 
-    changeSlideBackground();
     changeScale();
     setInterval(changeSlideBackground, 3500);
 };
