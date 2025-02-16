@@ -16,29 +16,47 @@ document.addEventListener("DOMContentLoaded", function () {
     categories.forEach(category => observer.observe(category));
 });
 
-
-
 window.onload = function () {
+
+    function startBackgroundSlide() {
+        backgroundImg.style.backgroundImage = `url('${mainSlideImages[index]}')`;
+        backgroundImg.style.transform = "scale(1.1)";
+        index = (index + 1) % numImages;
+    }
+
+    function changeScale() {
+
+        if(transformScale){
+            backgroundImg.style.transform = "scale(1.04)";
+            transformScale = 0;
+        }
+        else {
+            backgroundImg.style.transform = "scale(1)";
+            transformScale = 1;
+        }
+    }
 
     function changeSlideBackground() {
         
         backgroundImg.style.backgroundImage = `url('${mainSlideImages[index]}')`;
-    
-        if(index % 2)
-            backgroundImg.style.transform = "scale(1)";
-        else
-            backgroundImg.style.transform = "scale(1.05)";
-    
-        index = (index + 1) % numImages; 
+        index = (index + 1) % numImages;
     }
-    
+
     const mainSlideImages = ["images/candles1.webp" , "images/candles2.webp" , "images/candles3.webp" , "images/candles4.webp"];
 
     const backgroundImg = document.getElementById("backgroundImg");
     const numImages = mainSlideImages.length;
 
     let index = 0;
-    
+    let transformScale = 1;
+
+    backgroundImg.addEventListener("transitionend", (event) => {
+        
+        if(event.propertyName == "transform")
+            changeScale();
+    });
+
     changeSlideBackground();
+    changeScale();
     setInterval(changeSlideBackground, 3500);
 };
