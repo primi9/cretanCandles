@@ -180,7 +180,7 @@
 }
 
 .category-text-description h2 {
-    font-size: 1.7rem;
+    font-size: 1.9rem;
     padding:1.5%;
     color: #46371d;
     text-align: center;
@@ -192,7 +192,7 @@
     text-align: center;
     hyphens:auto;
     margin-bottom:auto;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 @media(max-width:800px) {
