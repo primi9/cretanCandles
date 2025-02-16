@@ -37,8 +37,7 @@ window.onload = function () {
 
     function changeSlideBackground() {
         index = (index + 1) % numImages;
-        next_img_index = (index + 1) % numImages;
-        preloadImage(mainSlideImages[next_img_index]);
+        preloadImage(mainSlideImages[(index + 1) % numImages]);
         backgroundImg.style.backgroundImage = `url('${mainSlideImages[index]}')`;
     }
 

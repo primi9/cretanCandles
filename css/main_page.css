@@ -6,6 +6,7 @@
     margin:1rem auto;
     border-radius: 1rem;
     flex-wrap: wrap;
+    min-height: 30vh;
 }
 
 .services-text {
@@ -27,11 +28,6 @@
     overflow-wrap: anywhere;
     text-align: center;
     font-size: large;
-}
-
-.hidden-back-images {
-    display: none;
-    background-image: url('../images/candles1.webp'), url('../images/candles2.webm'), url('../images/candles3.webm'), url('../images/candles4.webm');
 }
 
 .about-us-container {
@@ -116,6 +112,11 @@
         width:100%;
         height:40vh;
         margin: 3rem auto 3rem auto;
+    }
+
+    .image-content {
+        top:0;
+        
     }
 }
 
